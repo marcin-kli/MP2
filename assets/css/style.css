@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body{
+  font-family: 'Hind', serif;
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #fafafa;
+  background-color: #262626;
+}
+
+.container-nav{
+    /* max-width: 1400px; */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.flex-nav{
+    flex-direction: row;
+}
+.flex-nav li{
+    padding-left:1em;
+    font-size:110%;
+}
+
+@media  (min-width: 1024px) and (max-width: 1366px){
+    .nav-large{
+    padding-right: 4em;
+    padding-left: 4em;
+   }
+}
+
+@media  (min-width: 1367px){
+    .nav-large{
+    padding-right: 7em;
+    padding-left: 7em;
+   }
+}

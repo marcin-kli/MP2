@@ -27,7 +27,7 @@ The site is divided into three parts. Major earthquakes in the last 30 days, maj
 Site owner goal: provide interactive solution to search, display data and information about earthquakes.
 User goal: find relevant data and some basic knowledge about earthquakes.
 
-# Scope
+## Scope
 
 As a MVP (minimum viable product) I divide landing page into 3 sections which show below features:
 - list of the earthquakes in chosen period of time
@@ -35,7 +35,7 @@ As a MVP (minimum viable product) I divide landing page into 3 sections which sh
 - educational information
 - map of the earthquakes as a search result
 
-## User stories
+### User stories
 
 As a site owner:
 - I would like to show all information in a simple way on the website. Everything beyond should be redirected to external resources.
