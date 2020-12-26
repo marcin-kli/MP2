@@ -13,6 +13,11 @@ body{
   color: #fafafa;
   background-color: #262626;
 }
+
+p{
+    margin: 0;
+}
+
 a{
     color: #fafafa;
 }
@@ -55,18 +60,48 @@ a{
    }
 }
 
+/********* section *********/
+
+section{
+    height: 90vh;
+    background-image: url("../images/pexels-pixabay-41953_00.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% ;
+}
+
+@media screen and (max-width: 768px){
+    section{
+        background-size: 100%;
+    }
+}
+
+.card{
+    padding: 25vh 5vw 25vh;
+    background-color: transparent;
+    font-size: 125%;
+    font-weight: 700;
+}
+.card-body{
+    margin: 5px 0 5px;
+    background-color:#233CCC;
+    opacity: 0.8;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    text-align: center;
+}
+
 /********* footer *********/
 
 .flex-footer{
     padding: 1.5em 1em -0.1em;
     margin-top:12px;
     margin-bottom:-8px;
-    font-size:120%;
+    font-size:115%;
     letter-spacing: 2px;
     justify-content: center;
 }
 .footer-space{
-    padding: 0.5em 1em -0.5em 1em;
+    padding: 0em 1em 0em 1em;
 } 
 
 footer ul{
