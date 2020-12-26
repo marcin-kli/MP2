@@ -13,18 +13,31 @@ body{
   color: #fafafa;
   background-color: #262626;
 }
+a{
+    color: #fafafa;
+}
 
-.container-nav{
-    /* max-width: 1400px; */
+/********* all sections *********/
+
+.container-fixed{
+    max-width: 1400px;
     margin-right: auto;
     margin-left: auto;
 }
 
+.uppercase{
+    text-transform: uppercase;
+}
+
+/********* navigation *********/
+
 .flex-nav{
     flex-direction: row;
 }
+
 .flex-nav li{
-    padding-left:1em;
+    padding-left:0.5em;
+    padding-right:0.5em;
     font-size:110%;
 }
 
@@ -40,4 +53,34 @@ body{
     padding-right: 7em;
     padding-left: 7em;
    }
+}
+
+/********* footer *********/
+
+.flex-footer{
+    padding: 1.5em 1em -0.1em;
+    margin-top:12px;
+    margin-bottom:-8px;
+    font-size:120%;
+    letter-spacing: 2px;
+    justify-content: center;
+}
+.footer-space{
+    padding: 0.5em 1em -0.5em 1em;
+} 
+
+footer ul{
+     list-style: none;
+     display: flex;
+}
+
+footer li{
+    padding-left:0.5em;
+    padding-right:0.5em;
+    letter-spacing: 0.5em;
+}
+
+footer p{
+    text-align: right;
+    padding-right:5em;
 }
