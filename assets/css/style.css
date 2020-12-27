@@ -64,6 +64,7 @@ a{
 
 section{
     height: 90vh;
+    padding: 25vh 5vw 25vh;
     background-image: url("../images/pexels-pixabay-41953_00.jpg");
     background-repeat: no-repeat;
     background-position: 50% ;
@@ -76,18 +77,38 @@ section{
 }
 
 .card{
-    padding: 25vh 5vw 25vh;
     background-color: transparent;
     font-size: 125%;
     font-weight: 700;
+    border: none;
 }
-.card-body{
+
+.card-header{
     margin: 5px 0 5px;
     background-color:#233CCC;
     opacity: 0.8;
     border: 2px solid #ffffff;
-    border-radius: 5px;
+    border-radius: 15px !important;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.card-header h2{
+    margin-bottom: 0em;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    font-size: 110%;
     text-align: center;
+}
+
+.card-body{
+    margin: -5px 1em 1em 1em;
+    background-color:#7090D0;
+    opacity: 0.9;
+    border-bottom: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
 }
 
 /********* footer *********/
