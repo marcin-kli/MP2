@@ -1,17 +1,24 @@
 $(document).ready(function () {
     
-    $("#map").hide();
+    // hide all card bodys and map 
     $(".card-body").hide();
+    $("#map").hide();
+
+    //hide buttons
+    $("#customdata-hide").hide();
+    $("#greatest-hide").hide();
+    $("#knowledge-hide").hide();
     
-    $("#last button").click(function(){
-    $("#last .card-body").toggle();
+    //show options
+    $("#customdata-show").click(function(){
+    $("#customdata .card-body").toggle();
     });
 
-    $("#greatest button").click(function(){
-    $("#greatest .card-body").toggle();
+    $("#greatest-show").click(function(){
+    $("#greatest .card-body").show();
     });
 
-    $("#knowledge button").click(function(){
+    $("#knowledge-show").click(function(){
     $("#knowledge .card-body").toggle();
     })
 });
@@ -30,9 +37,15 @@ function openUSGSAPI(USGS,callback){
           };
     }
 }
+    //show 20 GREATEST EARTHQUAKES data
+
 function printGratestData(USGS) {
-    
-    $('#greatest-data').html("")
+    // padding: 25vh;
+    $('section').css('padding','0');
+    $('section').css('margin-bottom','5vh');
+    $('#customdata').hide();
+    $('#knowledge').hide();
+    $('#greatest-data').html("");
 
     openUSGSAPI(USGS, function(data){
         console.log(data);
@@ -44,6 +57,17 @@ function printGratestData(USGS) {
         });
     console.log(data.length);
     $('#loading_data').html("")
-
+    $("#greatest-show").hide();
+    $("#greatest-hide").show();
     })
+}
+
+function hideGratestData(){
+    $(".card-body").hide();
+    $("#greatest-show").show();
+    $("#greatest-hide").hide();
+    $('#customdata').show();
+    $('#knowledge').show();
+    $('section').css('padding','25vh 0');
+    $('section').css('margin-bottom','0');
 }

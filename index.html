@@ -38,10 +38,11 @@
 
     <section class="container-fixed container-fluid">
         
-        <div class="card uppercase" id="last">
+        <div class="card uppercase" id="customdata">
             <div class="card-header">
                 <h2>Last Earthquakes</h2>
-                <button type="button" class="btn btn-dark uppercase">show</button>
+                <button type="button" class="btn btn-dark uppercase" id="customdata-show">show</button>
+                <button type="button" class="btn btn-dark uppercase" id="customdata-hide">back</button>
             </div>
             <div class="card-body">
                 <p>data from API</p>
@@ -50,10 +51,11 @@
         <div class="card uppercase" id="greatest">
             <div class="card-header" >
                 <h2>20 Greatest Earthquakes</h2>
-                <button type="button" class="btn btn-dark uppercase" onclick="printGratestData()">show</button>
+                <button type="button" class="btn btn-dark uppercase" id="greatest-show" onclick="printGratestData()">show</button>
+                <button type="button" class="btn btn-dark uppercase" id="greatest-hide" onclick="hideGratestData()">back</button>
             </div>
             <div class="card-body">
-                <div id="loading_data">LOADING</div>
+                <div id="loading_data"><h1>LOADING</h1></div>
                 <div id="greatest-data" class="table table-hover"></div>
             </div>
         </div>
@@ -65,7 +67,8 @@
         <div class="card uppercase"  id="knowledge">
             <div class="card-header">
                 <h2>knowledge base</h2>
-                <button type="button" class="btn btn-dark uppercase">show</button>
+                <button type="button" class="btn btn-dark uppercase" id="knowledge-show">show</button>
+                <button type="button" class="btn btn-dark uppercase" id="knowledge-hide">back</button>
             </div>
             <div class="card-body">
                 <p>knowledge base</p><hr>

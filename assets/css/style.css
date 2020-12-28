@@ -63,8 +63,7 @@ a{
 /********* section *********/
 
 section{
-    height: 90vh;
-    padding: 25vh 5vw 25vh;
+    padding: 25vh 0;
     background-image: url("../images/pexels-pixabay-41953_00.jpg");
     background-repeat: no-repeat;
     background-position: 50% ;
