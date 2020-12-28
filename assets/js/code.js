@@ -33,15 +33,14 @@ function openUSGSAPI(USGS,callback){
 function printGratestData(USGS) {
     
     $('#greatest-data').html("")
-   
+
     openUSGSAPI(USGS, function(data){
+        console.log(data);
         data=data.features;
+        $('#greatest-data').html("<table class='table-active'><thead><tr><th rowspan='2'>Magnitude</th> <th rowspan='2'>Place</th><th rowspan='2'>Date</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr></thead></table>")
         data.forEach(function(item) {
-            
-            document.getElementById('greatest-data').innerHTML +=
-            "<table><tr><th>Magnitude</th> <th>Place</th><th>Time</th><th>Coordinates</th></tr><tr><td>"
-            +item.properties.mag+"</td>"+"<td>"+item.properties.place+"</td>"+"<td>"
-            +item.properties.time+"</td>"+"<td>"+item.geometry.coordinates+"</td></tr></table>"
+            document.getElementById('greatest-data').innerHTML += "<table><tr><td>" +item.properties.mag+"</td>"+"<td>"+item.properties.place+"</td>"+"<td>"
+            + (new Date(item.properties.time)).toLocaleDateString() +"</td>"+"<td>"+ item.geometry.coordinates[0]+ "</td><td>" +item.geometry.coordinates[1]+"</td></tr></table>"
         });
     console.log(data.length);
     $('#loading_data').html("")

@@ -9,7 +9,7 @@
 body{
   font-family: 'Hind', serif;
   font-size: 16px;
-  line-height: 1.5em;
+  /* line-height: 1.5em; */
   color: #fafafa;
   background-color: #262626;
 }
@@ -78,8 +78,6 @@ section{
 
 .card{
     background-color: transparent;
-    font-size: 125%;
-    font-weight: 700;
     border: none;
 }
 
@@ -99,11 +97,13 @@ section{
     padding-right: 2vw;
     padding-left: 2vw;
     font-size: 110%;
+    font-weight: 600;
     text-align: center;
 }
 
 .card-body{
     margin: -5px 1em 1em 1em;
+    padding: 0;
     background-color:#7090D0;
     opacity: 0.9;
     border-bottom: 2px solid #ffffff;
@@ -111,6 +111,27 @@ section{
     border-right: 2px solid #ffffff;
 }
 
+/********* greatest-data *********/
+
+table{
+    width: 100%;
+    vertical-align: middle;
+}
+.table{
+    margin-bottom: 0rem;
+}
+.table thead th, .table td{
+    vertical-align: middle;
+    width: 20%;
+    text-align: center;
+    padding: 0.25rem 0 0.25rem 0;
+}
+
+@media screen and  (max-width: 992px){
+    table{
+        font-size: 60%;
+    }
+}
 /********* footer *********/
 
 .flex-footer{
