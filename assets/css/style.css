@@ -8,7 +8,8 @@
 
 body{
   font-family: 'Hind', serif;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 400;
   /* line-height: 1.5em; */
   color: #fafafa;
   background-color: #262626;
@@ -43,20 +44,22 @@ a{
 .flex-nav li{
     padding-left:0.5em;
     padding-right:0.5em;
-    font-size:110%;
+    
 }
 
 @media  (min-width: 1024px) and (max-width: 1366px){
     .nav-large{
-    padding-right: 4em;
-    padding-left: 4em;
+    padding-right: 3em;
+    padding-left: 3em;
+    font-size:105%;
    }
 }
 
 @media  (min-width: 1367px){
     .nav-large{
-    padding-right: 7em;
-    padding-left: 7em;
+    padding-right: 5em;
+    padding-left: 5em;
+    font-size:110%;
    }
 }
 
@@ -95,7 +98,7 @@ section{
     margin-bottom: 0em;
     padding-right: 2vw;
     padding-left: 2vw;
-    font-size: 110%;
+    font-size: 100%;
     font-weight: 600;
     text-align: center;
 }
@@ -137,7 +140,6 @@ table{
     padding: 1.5em 1em -0.1em;
     margin-top:12px;
     margin-bottom:-8px;
-    font-size:115%;
     letter-spacing: 2px;
     justify-content: center;
 }
