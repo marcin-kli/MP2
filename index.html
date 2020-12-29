@@ -45,7 +45,7 @@
                 <button type="button" class="btn btn-dark uppercase" id="customdata-hide">back</button>
             </div>
             <div class="card-body">
-                <form>
+                <form name="formcustomdata">
                     <div class="row">
                         <div class="col">
                             <fieldset id="1">
@@ -88,42 +88,42 @@
                             <fieldset id="2">
                                 <legend>Select Magnitude</legend>
                                 <div class="form-check">
-                                    <input type="radio" name="magnitude" id="magnitude2.5">
+                                    <input type="radio" name="magnitude" id="magnitude2.5" value="2.5">
                                     <label class="form-check-label" for="magnitude2.5">
-                                        +2.5
+                                        + 2.5
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input type="radio" name="magnitude" id="magnitude4.5" checked>
+                                    <input type="radio" name="magnitude" id="magnitude4.5" value="4.5">
                                     <label class="form-check-label" for="magnitude4.5">
-                                        +4.5
+                                        + 4.5
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input type="radio" name="magnitude" id="magnitude6.5">
+                                    <input type="radio" name="magnitude" id="magnitude6.5" value="6.5" checked>
                                     <label class="form-check-label" for="magnitude6.5">
-                                        +6.5
+                                        + 6.5
                                     </label>
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check" onclick="$('#customRange').show()">
                                     <input type="radio" name="magnitude" id="magnitudeCustom">
                                     <label class="form-check-label" for="magnitudeCustom">
                                         Custom
                                     </label>
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check" id="customRange">
                                     <label for="customRange" class="form-check-label">Choose range</label>
-                                    <input type="range" min="2.5" max="10" step="0.5" id="customRange">
+                                    <input type="range" name="magnituderange" min="2.5" max="9.5" step="0.5" value="7.5" id="customRangeInput">   
                                 </div>
                             </fieldset>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-check d-grid gap-2 mx-auto">
-                            <button class="btn btn-dark uppercase" type="submit" style="width: 100%" >search</button>
-                        </div>
-                    </div>
                 </form>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-dark uppercase" style="width: 100%" onclick="checkmagnitude()">search</button>
+                    </div>
+                <div id="loading_datac"><h1>LOADING</h1></div>
+                <div id="custom-data" class="table table-hover capitalize"></div>
             </div>
         </div>
         <div class="card" id="greatest">

@@ -8,7 +8,8 @@ $(document).ready(function () {
     $("#customdata-hide").hide();
     $("#greatest-hide").hide();
     $("#knowledge-hide").hide();
-    
+    $("#customRange").hide();
+
     //show options
     $("#customdata-show").click(function(){
     $("#customdata .card-body").toggle();
@@ -40,7 +41,7 @@ function openUSGSAPI(USGS,callback){
     //show 20 GREATEST EARTHQUAKES data
 
 function printGratestData(USGS) {
-    // padding: 25vh;
+
     $('section').css('padding','0');
     $('section').css('margin-bottom','5vh');
     $('#customdata').hide();
@@ -70,4 +71,17 @@ function hideGratestData(){
     $('#knowledge').show();
     $('section').css('padding','25vh 0');
     $('section').css('margin-bottom','0');
+}
+   
+function checkmagnitude(){
+    
+    $('#magnitudeCustom').val(0);
+    var magnitude = $('input[name="magnitude"]:checked').val();
+    if ((magnitude != "on") && (magnitude > 0)){
+        magnitude = $("input[name='magnitude']:checked").val();
+        
+    } else {
+        magnitude = $("#customRangeInput").val();
+    }
+    console.log(magnitude);
 }
