@@ -85,3 +85,8 @@ function checkmagnitude(){
     }
     console.log(magnitude);
 }
+
+function setCustomMagnitude(){
+
+     document.formcustomdata.magnitude[3].checked=true;
+}
