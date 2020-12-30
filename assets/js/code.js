@@ -25,8 +25,8 @@ $(document).ready(function () {
 });
 
     //open USGS API//
-function openUSGSAPI(USGS,callback){
-    var magnitude = 8.4
+function openUSGSAPI(magnitude,callback){
+    
     var xhr = new XMLHttpRequest();
     var url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=1727-11-10&endtime=2020-12-31&minmagnitude=";
     xhr.open("GET",url + magnitude);
@@ -40,7 +40,7 @@ function openUSGSAPI(USGS,callback){
 }
     //show 20 GREATEST EARTHQUAKES data
 
-function printGratestData(USGS) {
+function printGratestData() {
 
     $('section').css('padding','0');
     $('section').css('margin-bottom','5vh');
@@ -48,7 +48,13 @@ function printGratestData(USGS) {
     $('#knowledge').hide();
     $('#greatest-data').html("");
 
-    openUSGSAPI(USGS, function(data){
+    var magnitude = 8.4
+    printintable(magnitude)
+}
+
+    //display data from USGS API to the table
+function printintable(magnitude){
+    openUSGSAPI(magnitude, function(data){
         console.log(data);
         data=data.features;
         $('#greatest-data').html("<table class='table-active'><thead><tr><th rowspan='2'>Magnitude</th> <th rowspan='2'>Place</th><th rowspan='2'>Date</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr></thead></table>")
@@ -72,7 +78,7 @@ function hideGratestData(){
     $('section').css('padding','25vh 0');
     $('section').css('margin-bottom','0');
 }
-   
+   //select custom magnitude in custom search
 function checkmagnitude(){
     
     $('#magnitudeCustom').val(0);
@@ -86,6 +92,7 @@ function checkmagnitude(){
     console.log(magnitude);
 }
 
+    //set "Custom" radio input to checked state in custom search
 function setCustomMagnitude(){
 
      document.formcustomdata.magnitude[3].checked=true;
