@@ -43,8 +43,7 @@ function printintable(magnitude){
             + (new Date(item.properties.time)).toLocaleDateString() +"</td>"+"<td>"+ item.geometry.coordinates[0]+ "</td><td>" +item.geometry.coordinates[1]+"</td></tr></table>"
         });
     console.log(data.length);
-    $('#loading_data').html("")
-    $('#card-body').show();
+    $('#loadingData').html("")
     })
 }
 
@@ -57,6 +56,7 @@ function showGratestData() {
     $('#knowledge').hide();
     $("#greatestButton-show").hide();
     $("#greatestButton-back").show();
+    $('#card-body').show();
     //print greatest earthquakes to table
     var magnitude = 8.4
     printintable(magnitude)
@@ -65,6 +65,7 @@ function showGratestData() {
     //back button for 20 GREATEST EARTHQUAKES data
 function hideGratestData(){
 
+    $('#loadingData').html("<h1>LOADING</h1>");
     $('#card-body').hide();
     $("#greatestButton-show").show();
     $("#greatestButton-back").hide();
@@ -87,7 +88,7 @@ function showLastEarthquakesData(){
 }
 
     // select custom magnitude in custom search
-function checkmagnitude(){
+function search(){
     $('#magnitudeCustom').val(0);
     var magnitude = $('input[name="magnitude"]:checked').val();
     if ((magnitude != "on") && (magnitude > 0)){
@@ -96,6 +97,8 @@ function checkmagnitude(){
         magnitude = $("#customRangeInput").val();
     }
     console.log(magnitude);
+    $("#customdata").hide();
+    $('#card-body').show();
     printintable(magnitude);
 }
 
@@ -108,7 +111,8 @@ function setCustomMagnitude(){
  //back button for LAST EARTHQUAKES data 
 function hideLastEarthquakesData(){
 
-    $('#customdata').hide();
+    $('#loadingData').html("<h1>LOADING</h1>");
+    $('#card-body').hide();
     $("#lastEarthquakesButton-show").show();
     $("#lastEarthquakesButton-back").hide();
     $('#greatest').show();
