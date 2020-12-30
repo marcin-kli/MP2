@@ -11,13 +11,6 @@ $(document).ready(function () {
     $("#customRange").hide();
 
     //show buttons to select on main page
-    $("#lastEarthquakesButton-show").click(function(){
-    $("#lastEarthquakes .card-body").toggle();
-    });
-
-    $("#greatestButton-show").click(function(){
-    $("#greatest .card-body").show();
-    });
 
     $("#knowledge-show").click(function(){
     $("#knowledge .card-body").toggle();
@@ -39,22 +32,9 @@ function openUSGSAPI(magnitude,callback){
     }
 }
 
-    //show 20 GREATEST EARTHQUAKES data
-function showGratestData() {
-
-    $('section').css('padding','0');
-    $('section').css('margin-bottom','5vh');
-    $('#lastEarthquakes').hide();
-    $('#knowledge').hide();
-    $("#greatestButton-show").hide();
-    $("#greatestButton-back").show();
-    $('#datadisplay-table').html("");
-    var magnitude = 8.4
-    printintable(magnitude)
-}
-
-    //display data from USGS API to the table
+ //display data from USGS API to the table
 function printintable(magnitude){
+    $('#datadisplay-table').html("");
     openUSGSAPI(magnitude, function(data){
         data=data.features;
         $('#datadisplay-table').html("<table class='table-active'><thead><tr><th rowspan='2'>Magnitude</th> <th rowspan='2'>Place</th><th rowspan='2'>Date</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr></thead></table>")
@@ -68,8 +48,23 @@ function printintable(magnitude){
     })
 }
 
+    //show 20 GREATEST EARTHQUAKES data
+function showGratestData() {
+
+    $('section').css('padding','0');
+    $('section').css('margin-bottom','5vh');
+    $('#lastEarthquakes').hide();
+    $('#knowledge').hide();
+    $("#greatestButton-show").hide();
+    $("#greatestButton-back").show();
+    //print greatest earthquakes to table
+    var magnitude = 8.4
+    printintable(magnitude)
+}
+
     //back button for 20 GREATEST EARTHQUAKES data
 function hideGratestData(){
+
     $('#card-body').hide();
     $("#greatestButton-show").show();
     $("#greatestButton-back").hide();
@@ -79,14 +74,24 @@ function hideGratestData(){
     $('section').css('margin-bottom','0');
 }
 
-   //select custom magnitude in custom search @ LAST EARTHQUAKES
-function showLastEarthquakes(){
+   //show LAST EARTHQUAKES data 
+function showLastEarthquakesData(){
     
+    $('section').css('padding','0');
+    $('section').css('margin-bottom','5vh');
+    $('#greatest').hide();
+    $('#knowledge').hide();
+    $("#lastEarthquakesButton-show").hide();
+    $("#lastEarthquakesButton-back").show();
+    $("#customdata").show();
+}
+
+    // select custom magnitude in custom search
+function checkmagnitude(){
     $('#magnitudeCustom').val(0);
     var magnitude = $('input[name="magnitude"]:checked').val();
     if ((magnitude != "on") && (magnitude > 0)){
         magnitude = $("input[name='magnitude']:checked").val();
-        
     } else {
         magnitude = $("#customRangeInput").val();
     }
@@ -98,4 +103,16 @@ function showLastEarthquakes(){
 function setCustomMagnitude(){
 
      document.formcustomdata.magnitude[3].checked=true;
+}
+
+ //back button for LAST EARTHQUAKES data 
+function hideLastEarthquakesData(){
+
+    $('#customdata').hide();
+    $("#lastEarthquakesButton-show").show();
+    $("#lastEarthquakesButton-back").hide();
+    $('#greatest').show();
+    $('#knowledge').show();
+    $('section').css('padding','25vh 0');
+    $('section').css('margin-bottom','0');
 }
