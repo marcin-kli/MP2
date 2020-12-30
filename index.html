@@ -33,15 +33,16 @@
         </nav>
     </header>
 
+    <!-- site content -->
     <section class="container-fixed container-fluid">
-        
-        <div class="card" id="customdata">
+        <!-- last earthquakes section -->
+        <div class="card" id="lastEarthquakes">
             <div class="card-header uppercase">
                 <h2>Last Earthquakes</h2>
-                <button type="button" class="btn btn-dark uppercase" id="customdata-show">show</button>
-                <button type="button" class="btn btn-dark uppercase" id="customdata-hide">back</button>
+                <button type="button" class="btn btn-dark uppercase" id="lastEarthquakesButton-show">show</button>
+                <button type="button" class="btn btn-dark uppercase" id="lastEarthquakesButton-back">back</button>
             </div>
-            <div class="card-body">
+            <div class="card-body" id="customdata">
                 <form name="formcustomdata">
                     <div class="row">
                         <div class="col">
@@ -117,28 +118,34 @@
                     </div>
                 </form>
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <button class="btn btn-dark uppercase" style="width: 100%" onclick="checkmagnitude()">search</button>
+                        <button class="btn btn-dark uppercase" style="width: 100%" onclick="showLastEarthquakes()">search</button>
                     </div>
-                <div id="loading_datac"><h1>LOADING</h1></div>
-                <div id="custom-data" class="table table-hover capitalize"></div>
+                <!-- <div id="loading_datac"><h1>LOADING</h1></div>
+                <div id="datadisplay-table" class="table table-hover capitalize"></div> -->
+                
             </div>
         </div>
+        <!-- greatest earthquakes section -->
         <div class="card" id="greatest">
             <div class="card-header uppercase" >
                 <h2>20 Greatest Earthquakes</h2>
-                <button type="button" class="btn btn-dark uppercase" id="greatestbutton-show" onclick="showGratestData()">show</button>
-                <button type="button" class="btn btn-dark uppercase" id="greatestbutton-back" onclick="hideGratestData()">back</button>
+                <button type="button" class="btn btn-dark uppercase" id="greatestButton-show" onclick="showGratestData()">show</button>
+                <button type="button" class="btn btn-dark uppercase" id="greatestButton-back" onclick="hideGratestData()">back</button>
             </div>
-            <div class="card-body">
+            
+        </div>
+        <!-- card body for search data -->
+        <div class="card-body" id="card-body">
                 <div id="loading_data"><h1>LOADING</h1></div>
                 <div id="datadisplay-table" class="table table-hover capitalize"></div>
-            </div>
         </div>
+        <!-- map section -->
         <div class="card" id="map">
             <div class="card-header uppercase">
                 <h2>earthquakes Map</h2>
             </div>
         </div>
+        <!-- knowledge section -->
         <div class="card" id="knowledge">
             <div class="card-header uppercase">
                 <h2>knowledge base</h2>
