@@ -110,9 +110,10 @@
                                         Custom
                                     </label>
                                 </div>
-                                <div class="form-check" id="customRange">
+                                <div class="form-check popup" id="customRange">
                                     <label for="customRange" class="form-check-label">Choose range</label>
-                                    <input type="range" name="magnituderange" min="2.5" max="9.5" step="0.5" value="7.5" id="customRangeInput" onclick="setCustomMagnitude()">   
+                                    <input type="range" name="magnituderange" min="2.5" max="9.5" step="0.5" value="7.5" id="customRangeInput" onclick="setCustomMagnitude(), popup()">
+                                    <span class="popuptext" id="myPopup">7.5</span> 
                                 </div>
                             </fieldset>
                         </div>

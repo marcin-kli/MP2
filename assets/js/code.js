@@ -149,6 +149,14 @@ function disableMagnitude(){
     }
 }
 
+// show popup abouve custom range slider
+function popup(){
+    console.log(parseFloat(document.formcustomdata.magnituderange.value));
+    $(".popuptext").html(document.formcustomdata.magnituderange.value);
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+
  //back button for LAST EARTHQUAKES data 
 function hideLastEarthquakesData(){
 
