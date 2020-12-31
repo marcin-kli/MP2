@@ -90,7 +90,7 @@ function showLastEarthquakesData(){
 
     // select custom magnitude in custom search
 function search(){
-
+    
     //set magnitude
     $('#magnitudeCustom').val(0);
     var magnitude = $('input[name="magnitude"]:checked').val();
@@ -107,12 +107,30 @@ function search(){
     var previousDay = new Date();
     console.log("date "+previousDay);
     //getTime() change to milliseconds
-    previousDay= new Date(previousDay.getTime()-oneday);
-    console.log("date - 24 "+previousDay);
-    previousDay= previousDay.toLocaleDateString();
-    console.log("date - 24 "+previousDay);
+    console.log(document.formcustomdata.time[0].checked)
+    console.log(document.formcustomdata.time[1].checked)
+    console.log(document.formcustomdata.time[2].checked)
+    console.log(document.formcustomdata.time[3].checked)
+    if (document.formcustomdata.time[0].checked==true){
+        previousDay= (new Date(previousDay.getTime()-oneday)).toLocaleDateString();
+        console.log("date - 24 "+previousDay);
+    // previousDay= previousDay.toLocaleDateString();
+    // console.log("date - 24 "+previousDay);
+    }
+    else if (document.formcustomdata.time[1].checked==true){
+        previousDay= (new Date(previousDay.getTime()-oneday*7)).toLocaleDateString();
+    }
+    else if (document.formcustomdata.time[2].checked==true){
+        previousDay= (new Date(previousDay.getTime()-oneday*30)).toLocaleDateString();
+        //hide magnitude 2.5 here
+    }
+    else if (document.formcustomdata.time[3].checked==true){
+        previousDay= "custom";
+    }
+    
     $("#customdata").hide();
     $('#card-body').show();
+    $('#loadingData').html("<h1>LOADING</h1>");
     printintable(magnitude, previousDay);
 }
 
