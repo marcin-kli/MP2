@@ -138,10 +138,14 @@ function setCustomMagnitude(){
 function disableMagnitude(){
     if ((document.formcustomdata.time[0].checked==true)||(document.formcustomdata.time[1].checked==true)){
         document.formcustomdata.magnitude[0].disabled=false;
+        document.formcustomdata.magnituderange.min="2.5";
     }    
     else if ((document.formcustomdata.time[2].checked==true)||(document.formcustomdata.time[3].checked==true)){
         document.formcustomdata.magnitude[0].disabled=true;
+        document.formcustomdata.magnituderange.min="4.5";
+        if (document.formcustomdata.magnitude[3].checked==false){
         document.formcustomdata.magnitude[2].checked=true;
+        }
     }
 }
 
