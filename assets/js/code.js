@@ -19,23 +19,23 @@ $(document).ready(function () {
 
     //open USGS API//
 function openUSGSAPI(magnitude, previousDay, callback){
-    previousDay="1727-11-10";
-    var xhr = new XMLHttpRequest();
-    var url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=";
-    xhr.open("GET",url + previousDay + "&endtime=2020-12-31" + "&minmagnitude="+ magnitude);
-    xhr.send();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            data = JSON.parse(this.responseText);
-            callback(data);
-          };
-    }
+
+var xhr = new XMLHttpRequest();
+var url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=";
+xhr.open("GET",`${url + previousDay}&endtime=2021-01-01&minmagnitude=${magnitude}`);
+xhr.send();
+xhr.onreadystatechange = function () {
+if (this.readyState == 4 && this.status == 200) {
+data = JSON.parse(this.responseText);
+callback(data);
+};
+}
 }
 
  //display data from USGS API to the table
 function printintable(magnitude, previousDay){
-    $('#datadisplay-table').html("");
-    openUSGSAPI(magnitude, previousDay, function(data){
+$('#datadisplay-table').html("");
+openUSGSAPI(magnitude, previousDay, function(data){
         data=data.features;
         $('#datadisplay-table').html("<table class='table-active'><thead><tr><th rowspan='2'>Magnitude</th> <th rowspan='2'>Place</th><th rowspan='2'>Date</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr></thead></table>")
         data.forEach(function(item) {
@@ -59,7 +59,8 @@ function showGratestData() {
     $('#card-body').show();
     //print greatest earthquakes to table
     var magnitude = 8.4
-    printintable(magnitude)
+    var previousDay="1727-11-10";
+    printintable(magnitude, previousDay)
 }
 
     //back button for 20 GREATEST EARTHQUAKES data
@@ -100,13 +101,15 @@ function search(){
     }
     console.log(magnitude);
 
-    //set time
+    //set time to last 24 hours
     //One day (24 hours) = 86 400 000 milliseconds
     const oneday = 86400000;
     var previousDay = new Date();
-    console.log("date "+previousDay.toLocaleDateString());
+    console.log("date "+previousDay);
     //getTime() change to milliseconds
-    d= new Date(previousDay.getTime()-oneday).toLocaleDateString();
+    previousDay= new Date(previousDay.getTime()-oneday);
+    console.log("date - 24 "+previousDay);
+    previousDay= previousDay.toLocaleDateString();
     console.log("date - 24 "+previousDay);
     $("#customdata").hide();
     $('#card-body').show();
