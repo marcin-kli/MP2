@@ -106,16 +106,11 @@ function search(){
     const oneday = 86400000;
     var previousDay = new Date();
     console.log("date "+previousDay);
-    //getTime() change to milliseconds
-    console.log(document.formcustomdata.time[0].checked)
-    console.log(document.formcustomdata.time[1].checked)
-    console.log(document.formcustomdata.time[2].checked)
-    console.log(document.formcustomdata.time[3].checked)
+
     if (document.formcustomdata.time[0].checked==true){
+        //getTime() change to milliseconds
         previousDay= (new Date(previousDay.getTime()-oneday)).toLocaleDateString();
         console.log("date - 24 "+previousDay);
-    // previousDay= previousDay.toLocaleDateString();
-    // console.log("date - 24 "+previousDay);
     }
     else if (document.formcustomdata.time[1].checked==true){
         previousDay= (new Date(previousDay.getTime()-oneday*7)).toLocaleDateString();
@@ -138,6 +133,16 @@ function search(){
 function setCustomMagnitude(){
 
      document.formcustomdata.magnitude[3].checked=true;
+}
+    //disable magnitude + 2.5 for 30 days or custom option
+function disableMagnitude(){
+    if ((document.formcustomdata.time[0].checked==true)||(document.formcustomdata.time[1].checked==true)){
+        document.formcustomdata.magnitude[0].disabled=false;
+    }    
+    else if ((document.formcustomdata.time[2].checked==true)||(document.formcustomdata.time[3].checked==true)){
+        document.formcustomdata.magnitude[0].disabled=true;
+        document.formcustomdata.magnitude[2].checked=true;
+    }
 }
 
  //back button for LAST EARTHQUAKES data 
