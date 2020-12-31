@@ -18,11 +18,11 @@ $(document).ready(function () {
 });
 
     //open USGS API//
-function openUSGSAPI(magnitude,callback){
-    
+function openUSGSAPI(magnitude, previousDay, callback){
+    previousDay="1727-11-10";
     var xhr = new XMLHttpRequest();
-    var url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=1727-11-10&endtime=2020-12-31&minmagnitude=";
-    xhr.open("GET",url + magnitude);
+    var url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=";
+    xhr.open("GET",url + previousDay + "&endtime=2020-12-31" + "&minmagnitude="+ magnitude);
     xhr.send();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -33,9 +33,9 @@ function openUSGSAPI(magnitude,callback){
 }
 
  //display data from USGS API to the table
-function printintable(magnitude){
+function printintable(magnitude, previousDay){
     $('#datadisplay-table').html("");
-    openUSGSAPI(magnitude, function(data){
+    openUSGSAPI(magnitude, previousDay, function(data){
         data=data.features;
         $('#datadisplay-table').html("<table class='table-active'><thead><tr><th rowspan='2'>Magnitude</th> <th rowspan='2'>Place</th><th rowspan='2'>Date</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr></thead></table>")
         data.forEach(function(item) {
@@ -89,6 +89,8 @@ function showLastEarthquakesData(){
 
     // select custom magnitude in custom search
 function search(){
+
+    //set magnitude
     $('#magnitudeCustom').val(0);
     var magnitude = $('input[name="magnitude"]:checked').val();
     if ((magnitude != "on") && (magnitude > 0)){
@@ -97,9 +99,18 @@ function search(){
         magnitude = $("#customRangeInput").val();
     }
     console.log(magnitude);
+
+    //set time
+    //One day (24 hours) = 86 400 000 milliseconds
+    const oneday = 86400000;
+    var previousDay = new Date();
+    console.log("date "+previousDay.toLocaleDateString());
+    //getTime() change to milliseconds
+    d= new Date(previousDay.getTime()-oneday).toLocaleDateString();
+    console.log("date - 24 "+previousDay);
     $("#customdata").hide();
     $('#card-body').show();
-    printintable(magnitude);
+    printintable(magnitude, previousDay);
 }
 
     //set "Custom" radio input to checked state in custom search @ LAST EARTHQUAKES
@@ -113,6 +124,7 @@ function hideLastEarthquakesData(){
 
     $('#loadingData').html("<h1>LOADING</h1>");
     $('#card-body').hide();
+    $('#customdata').hide();
     $("#lastEarthquakesButton-show").show();
     $("#lastEarthquakesButton-back").hide();
     $('#greatest').show();
