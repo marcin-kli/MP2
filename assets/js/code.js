@@ -1,3 +1,6 @@
+const currentDay = (new Date());
+console.log(currentDay);
+
 $(document).ready(function () {
     
     // hide all card bodys and map 
@@ -9,20 +12,24 @@ $(document).ready(function () {
     $("#greatestButton-back").hide();
     $("#knowledge-hide").hide();
     $("#customRange").hide();
+    $("#customTime").hide();
 
     //show buttons to select on main page
 
     $("#knowledge-show").click(function(){
     $("#knowledge .card-body").toggle();
     })
+
+    //date settings
+    document.getElementById("datefrom").defaultValue = "2020-11-10";
+    document.getElementById("dateuntil").defaultValue = currentDay.getFullYear()+"-0"+(currentDay.getMonth()+1)+"-0"+currentDay.getDate(); 
 });
 
     //open USGS API//
 function openUSGSAPI(magnitude, previousDay, callback){
-
 var xhr = new XMLHttpRequest();
 var url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=";
-xhr.open("GET",`${url + previousDay}&endtime=2021-01-01&minmagnitude=${magnitude}`);
+xhr.open("GET",`${url + previousDay}&${currentDay}&minmagnitude=${magnitude}`);
 xhr.send();
 xhr.onreadystatechange = function () {
 if (this.readyState == 4 && this.status == 200) {

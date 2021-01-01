@@ -67,20 +67,22 @@
                                         Last 30 days
                                     </label>
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check" onclick="$('#customTime').show()">
                                     <input type="radio" name="time" id="timeCustom" >
                                     <label class="form-check-label" for="timeCustom">
                                         Custom
                                     </label>
                                 </div>
-                                <div class="form-check">
-                                    <label for="datefrom">From:</label>
-                                    <input type="date" id="datefrom" name="datefrom">
+                                <div class="form-check" id="customTime">
+                                    <p>
+                                        <label for="datefrom">From:</label>
+                                        <input type="date" id="datefrom" name="datefrom" min="1727-11-10" max="$('#dateuntil.max)'">
+                                    </p>
+                                    <p>
+                                        <label for="dateuntil">Until:</label>
+                                        <input type="date" id="dateuntil" name="dateuntil">
+                                    </p>
                                </div>
-                               <div class="form-check">
-                                    <label for="dateuntil">Until:</label>
-                                    <input type="date" id="dateuntil" name="dateuntil">
-                               </div> 
                             </fieldset>
                         </div>
                         <div class="col">
