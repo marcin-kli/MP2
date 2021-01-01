@@ -1,11 +1,9 @@
     //set variables
-    //create current day in format: yyyy-mm-dd 
-    const currentDay = (new Date()).toISOString().substring(0, 10);
+    var currentDay = new Date();
+    var otherDay=new Date();
+    var magnitude;
     //One day (24 hours) = 86 400 000 milliseconds
     const oneday = 86400000;
-    //create other day for custom setting in format: yyyy-mm-dd 
-    var otherDay=new Date();
-    otherDay= (new Date(otherDay.getTime()-oneday*10)).toISOString().substring(0, 10);
 
 $(document).ready(function () {
     
@@ -26,29 +24,34 @@ $(document).ready(function () {
     $("#knowledge .card-body").toggle();
     })
 
+    //create current day in format: yyyy-mm-dd
+    currentDay = (new Date(currentDay)).toISOString().substring(0, 10);
+    //create other day for custom setting in format: yyyy-mm-dd 
+    otherDay= (new Date(otherDay.getTime()-oneday*10)).toISOString().substring(0, 10);
     //set datefrom and dateuntil in custom setting
     document.getElementById("datefrom").defaultValue = otherDay;
     document.getElementById("dateuntil").defaultValue = currentDay; 
 });
 
     //open USGS API//
-function openUSGSAPI(magnitude, otherDay, callback){
-var xhr = new XMLHttpRequest();
-var url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=";
-xhr.open("GET",`${url + otherDay}&${currentDay}&minmagnitude=${magnitude}`);
-xhr.send();
-xhr.onreadystatechange = function () {
-if (this.readyState == 4 && this.status == 200) {
-data = JSON.parse(this.responseText);
-callback(data);
-};
-}
+function openUSGSAPI(magnitude, otherDay, currentDay, callback){
+    var xhr = new XMLHttpRequest();
+    // var url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=1727-11-10&endtime=2020-12-31&minmagnitude=";
+    var url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=";
+    xhr.open("GET",`${url + otherDay}&endtime=${currentDay}&minmagnitude=${magnitude}`);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            data = JSON.parse(this.responseText);
+            callback(data);
+        };
+    }
 }
 
  //display data from USGS API to the table
-function printintable(magnitude, otherDay){
+function printintable(magnitude, otherDay, currentDay){
 $('#datadisplay-table').html("");
-openUSGSAPI(magnitude, otherDay, function(data){
+openUSGSAPI(magnitude, otherDay, currentDay, function(data){
         data=data.features;
         $('#datadisplay-table').html("<table class='table-active'><thead><tr><th rowspan='2'>Magnitude</th> <th rowspan='2'>Place</th><th rowspan='2'>Date</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr></thead></table>")
         data.forEach(function(item) {
@@ -70,10 +73,10 @@ function showGratestData() {
     $("#greatestButton-show").hide();
     $("#greatestButton-back").show();
     $('#card-body').show();
+    magnitude = 8.4
+    otherDay="1727-11-10";
     //print greatest earthquakes to table
-    var magnitude = 8.4
-    var otherDay="1727-11-10";
-    printintable(magnitude, otherDay)
+    printintable(magnitude, otherDay, currentDay)
 }
 
     //back button for 20 GREATEST EARTHQUAKES data
@@ -106,7 +109,7 @@ function search(){
     
     //set magnitude
     $('#magnitudeCustom').val(0);
-    var magnitude = $('input[name="magnitude"]:checked').val();
+    magnitude = $('input[name="magnitude"]:checked').val();
     if ((magnitude != "on") && (magnitude > 0)){
         magnitude = $("input[name='magnitude']:checked").val();
     } else {
@@ -114,31 +117,30 @@ function search(){
     }
     console.log(magnitude);
 
-    //set time to last 24 hours
-    
-    var otherDay = new Date();
-    console.log("date "+otherDay);
-
+    //set time
+    //getTime() change to milliseconds
+    otherDay = new Date().getTime();
     if (document.formcustomdata.time[0].checked==true){
-        //getTime() change to milliseconds
-        otherDay= (new Date(otherDay.getTime()-oneday)).toLocaleDateString();
-        console.log("date - 24 "+otherDay);
+        otherDay= otherDay-oneday;
     }
     else if (document.formcustomdata.time[1].checked==true){
-        otherDay= (new Date(otherDay.getTime()-oneday*7)).toLocaleDateString();
+        otherDay= otherDay-oneday*7;
     }
     else if (document.formcustomdata.time[2].checked==true){
-        otherDay= (new Date(otherDay.getTime()-oneday*30)).toLocaleDateString();
-        //hide magnitude 2.5 here
+        otherDay= otherDay-oneday*30;
+        //hide magnitude 2.5 here -> disableMagnitude
     }
     else if (document.formcustomdata.time[3].checked==true){
-        otherDay= "custom";
+        otherDay= $("#datefrom").val(); // alert("Value: " + $("#test").val());
+        currentDay= $("#dateuntil").val(); // alert("Value: " + $("#test").val());
     }
-    
+    otherDay= (new Date(otherDay)).toISOString().substring(0, 10);
+    console.log("C " +currentDay);
+    console.log("O " + otherDay);
     $("#customdata").hide();
     $('#card-body').show();
     $('#loadingData').html("<h1>LOADING</h1>");
-    printintable(magnitude, otherDay);
+    printintable(magnitude, otherDay, currentDay);
 }
 
     //set "Custom" radio input to checked state in custom search
