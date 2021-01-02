@@ -47,7 +47,7 @@
                 <form name="formcustomdata">
                     <div class="row">
                         <div class="col-sm-6">
-                            <fieldset class="form-check" id="1" onclick="disableMagnitude()">
+                            <fieldset class="form-check" id="fieldset1" onclick="disableMagnitude()">
                                 <legend>Select time period</legend>
                                 <div>
                                     <input type="radio" name="time" id="timeLastDay" checked>
@@ -78,7 +78,7 @@
                             </fieldset>
                         </div>
                         <div class="col-sm-6">
-                            <fieldset class="form-check" id="2">
+                            <fieldset class="form-check" id="fieldset2">
                                 <legend>Select Magnitude</legend>
                                 <div>
                                     <input type="radio" name="magnitude" id="magnitude2.5" value="2.5" checked>
@@ -95,9 +95,9 @@
                                 <div onclick="$('#customRange').show()">
                                     <input type="radio" name="magnitude" id="magnitudeCustom">
                                     <label for="magnitudeCustom">Custom</label>
-                                    <span id="showMagnitudeValueText">7.5</span>
+                                    <span id="showMagnitudeValueText"></span>
                                 </div>
-                                <div class="popup" id="customRange">
+                                <div id="customRange">
                                     <label for="customRange">Choose range</label>
                                     <input type="range" name="magnituderange" min="2.5" max="9.5" step="0.5" value="7.5"
                                     id="customRangeInput" onclick="setCustomMagnitude(), showMagnitudeValue()">

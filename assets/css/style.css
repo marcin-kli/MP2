@@ -117,7 +117,27 @@ section{
     border-right: 2px solid #ffffff;
 }
 
-/********* greatest-data *********/
+/********* last earthquakes *********/
+#customdata form{
+    margin-bottom:1em;
+}
+
+#customdata button{
+    margin-bottom:1.5em;
+}
+
+#fieldset1 legend, #fieldset2 legend{
+    padding-top: 1em;
+
+}
+#fieldset1 div{
+    padding-left: 0.5em;
+}
+#customTime label{
+    width:50px;
+}
+
+/********* greatest earthquakes *********/
 
 table{
     width: 100%;
@@ -170,5 +190,6 @@ footer p{
 #showMagnitudeValueText{
     text-align: center;
     background-color: transparent;
+    color:#fafafa;
     margin-left: 4.5em;
 }
