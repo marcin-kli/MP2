@@ -181,7 +181,7 @@ footer p{
 
 /* The actual popup */
 .popup .popuptext {
-  visibility: visible;
+  visibility: hidden;
   width: 100px;
   background-color: #555;
   color: #fff;
