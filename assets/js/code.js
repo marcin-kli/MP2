@@ -25,8 +25,8 @@ $(document).ready(function () {
     })
 
     //create current day in format: yyyy-mm-dd
-    currentDay = (new Date(currentDay)).toISOString().substring(0, 10);
-    //create other day for custom setting in format: yyyy-mm-dd 
+    //create current day in format: yyyy-mm-dd (to include current day I need to add one day)
+    currentDay = (new Date(currentDay.getTime()+oneday)).toISOString().substring(0, 10);
     otherDay= (new Date(otherDay.getTime()-oneday*10)).toISOString().substring(0, 10);
     //set datefrom and dateuntil in custom setting
     document.getElementById("datefrom").defaultValue = otherDay;
@@ -52,6 +52,7 @@ function openUSGSAPI(magnitude, otherDay, currentDay, callback){
 function printintable(magnitude, otherDay, currentDay){
 $('#datadisplay-table').html("");
 openUSGSAPI(magnitude, otherDay, currentDay, function(data){
+    console.log(data);
         data=data.features;
         $('#datadisplay-table').html("<table class='table-active'><thead><tr><th rowspan='2'>Magnitude</th> <th rowspan='2'>Place</th><th rowspan='2'>Date</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr></thead></table>")
         data.forEach(function(item) {
@@ -131,8 +132,8 @@ function search(){
         //hide magnitude 2.5 here -> disableMagnitude
     }
     else if (document.formcustomdata.time[3].checked==true){
-        otherDay= $("#datefrom").val(); // alert("Value: " + $("#test").val());
-        currentDay= $("#dateuntil").val(); // alert("Value: " + $("#test").val());
+        otherDay= $("#datefrom").val();
+        currentDay= $("#dateuntil").val();
     }
     otherDay= (new Date(otherDay)).toISOString().substring(0, 10);
     console.log("C " +currentDay);
