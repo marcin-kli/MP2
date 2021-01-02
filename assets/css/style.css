@@ -158,6 +158,12 @@ table{
         font-size: 60%;
     }
 }
+/********* map *********/
+
+#mapid {
+    height: 500px;
+}
+
 /********* footer *********/
 
 .flex-footer{

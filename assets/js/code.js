@@ -9,7 +9,7 @@ $(document).ready(function () {
     
     // hide all card bodys and map 
     $(".card-body").hide();
-    $("#map").hide();
+    // $("#map").hide();
 
     //hide buttons and features
     $("#lastEarthquakesButton-back").hide();
