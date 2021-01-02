@@ -156,11 +156,15 @@ function disableMagnitude(){
         document.formcustomdata.magnitude[0].disabled=false;
         document.formcustomdata.magnituderange.min="2.5";
     }    
-    else if ((document.formcustomdata.time[2].checked==true)||(document.formcustomdata.time[3].checked==true)){
+    else if (document.formcustomdata.time[2].checked==true){
         document.formcustomdata.magnitude[0].disabled=true;
         document.formcustomdata.magnituderange.min="4.5";
         if (document.formcustomdata.magnitude[3].checked==false){
         document.formcustomdata.magnitude[2].checked=true;
+        }
+    else if (document.formcustomdata.time[3].checked==true){
+        document.formcustomdata.magnitude[0].disabled=true;
+        customTime();
         }
     }
 }
@@ -170,14 +174,67 @@ function customTime(){
     var dateFrom=new Date($("#datefrom").val());
     var dateUntil=new Date($("#dateuntil").val());
     var result;
-            dateFrom = dateFrom.getTime();
-            dateUntil = dateUntil.getTime();
-            result = (dateUntil - dateFrom)/oneday;
-            if (result <= 0){
-                alert("Please change date. Can't display data for: " + result + " days");
-                document.getElementById("datefrom").value = otherDay;
-                document.getElementById("dateuntil").value = currentDay;                 
-            }
+    dateFrom = dateFrom.getTime();
+    dateUntil = dateUntil.getTime();
+    result = (dateUntil - dateFrom)/oneday;
+    if (result <= 0){
+        alert("Please change date. Can't display data for: " + result + " days");
+        document.getElementById("datefrom").value = otherDay;
+        document.getElementById("dateuntil").value = currentDay;
+        document.formcustomdata.magnitude.disabled=false;
+    }
+    else if (result>0 && result <10){
+        document.formcustomdata.magnitude[0].disabled=false;
+        document.formcustomdata.magnituderange.min="2.5";
+    }
+    else if (result>=10 && result <=30){
+        document.formcustomdata.magnitude[0].disabled=true;
+        document.formcustomdata.magnitude[1].disabled=false;
+        document.formcustomdata.magnitude[2].disabled=false;  
+        document.formcustomdata.magnituderange.min="4.5";
+    }
+    else if (result>30 && result <=90){
+        document.formcustomdata.magnitude[0].disabled=true;
+        document.formcustomdata.magnitude[1].disabled=true;
+        document.formcustomdata.magnitude[2].disabled=false;       
+        document.formcustomdata.magnituderange.min="5";
+    }
+    else if (result>90 && result <=450){
+        document.formcustomdata.magnitude[0].disabled=true;
+        document.formcustomdata.magnitude[1].disabled=true;
+        document.formcustomdata.magnitude[2].disabled=false;       
+        document.formcustomdata.magnituderange.min="5.5";
+    }
+    else if (result>=450 && result <=1500){
+        document.formcustomdata.magnitude[0].disabled=true;
+        document.formcustomdata.magnitude[1].disabled=true;  
+        document.formcustomdata.magnitude[2].disabled=true;
+        document.formcustomdata.magnituderange.min="6";
+    }
+    else if (result>=1500 && result <=4000){
+        document.formcustomdata.magnitude[0].disabled=true;
+        document.formcustomdata.magnitude[1].disabled=true;  
+        document.formcustomdata.magnitude[2].disabled=true;
+        document.formcustomdata.magnituderange.min="6.5";
+    }
+    else if (result>=4000 && result <=12000){
+        document.formcustomdata.magnitude[0].disabled=true;
+        document.formcustomdata.magnitude[1].disabled=true;  
+        document.formcustomdata.magnitude[2].disabled=true;
+        document.formcustomdata.magnituderange.min="7";
+    }
+    else if (result>=12000 && result <=40000){
+        document.formcustomdata.magnitude[0].disabled=true;
+        document.formcustomdata.magnitude[1].disabled=true;  
+        document.formcustomdata.magnitude[2].disabled=true;
+        document.formcustomdata.magnituderange.min="7.5";
+    }
+    else if (result>=40000){
+        document.formcustomdata.magnitude[0].disabled=true;
+        document.formcustomdata.magnitude[1].disabled=true;  
+        document.formcustomdata.magnitude[2].disabled=true;
+        document.formcustomdata.magnituderange.min="8";
+    }
 }
 
 // show popup abouve custom range slider
