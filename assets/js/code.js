@@ -17,6 +17,7 @@ $(document).ready(function () {
     $("#knowledge-hide").hide();
     $("#customRange").hide();
     $("#customTime").hide();
+    $("#showMagnitudeValueText").hide();
 
     //show buttons to select on main page
 
@@ -257,11 +258,15 @@ function customTime(){
     }
 }
 
-// show popup abouve custom range slider
-function popup(){
-    $(".popuptext").html(document.formcustomdata.magnituderange.value);
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
+// display value from input slider; idea source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_rangeslider
+function showMagnitudeValue(){
+    $("#showMagnitudeValueText").show();
+    var slider = document.getElementById("customRangeInput");
+    var output = document.getElementById("showMagnitudeValueText");
+    output.innerHTML = slider.value;
+    slider.oninput = function() {
+    output.innerHTML = this.value;
+    }
 }
 
  //back button for LAST EARTHQUAKES data 
