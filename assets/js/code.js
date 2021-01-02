@@ -165,6 +165,21 @@ function disableMagnitude(){
     }
 }
 
+    // custom time to check condition on custom days
+function customTime(){
+    var dateFrom=new Date($("#datefrom").val());
+    var dateUntil=new Date($("#dateuntil").val());
+    var result;
+            dateFrom = dateFrom.getTime();
+            dateUntil = dateUntil.getTime();
+            result = (dateUntil - dateFrom)/oneday;
+            if (result <= 0){
+                alert("Please change date. Can't display data for: " + result + " days");
+                document.getElementById("datefrom").value = otherDay;
+                document.getElementById("dateuntil").value = currentDay;                 
+            }
+}
+
 // show popup abouve custom range slider
 function popup(){
     console.log(parseFloat(document.formcustomdata.magnituderange.value));
