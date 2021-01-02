@@ -73,7 +73,7 @@
                                         Custom
                                     </label>
                                 </div>
-                                <div class="form-check" id="customTime">
+                                <div class="form-check" id="customTime" onclick="setCustomTime()">
                                     <p>
                                         <label for="datefrom">From:</label>
                                         <input type="date" id="datefrom" name="datefrom" onchange="customTime()">
@@ -89,13 +89,13 @@
                             <fieldset id="2">
                                 <legend>Select Magnitude</legend>
                                 <div class="form-check">
-                                    <input type="radio" name="magnitude" id="magnitude2.5" value="2.5">
+                                    <input type="radio" name="magnitude" id="magnitude2.5" value="2.5" checked>
                                     <label class="form-check-label" for="magnitude2.5">
                                         + 2.5
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input type="radio" name="magnitude" id="magnitude4.5" value="4.5" checked>
+                                    <input type="radio" name="magnitude" id="magnitude4.5" value="4.5">
                                     <label class="form-check-label" for="magnitude4.5">
                                         + 4.5
                                     </label>

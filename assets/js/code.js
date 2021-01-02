@@ -144,28 +144,48 @@ function search(){
     printintable(magnitude, otherDay, currentDay);
 }
 
-    //set "Custom" radio input to checked state in custom search
+    //set "Custom" radio input to checked state in custom search for magnitude
 function setCustomMagnitude(){
 
      document.formcustomdata.magnitude[3].checked=true;
+}
+     //set "Custom" radio input to checked state in custom search for time
+function setCustomTime(){
+
+     document.formcustomdata.time[3].checked=true;
 }
 
     //disable magnitude + 2.5 for 30 days or custom option
 function disableMagnitude(){
     if ((document.formcustomdata.time[0].checked==true)||(document.formcustomdata.time[1].checked==true)){
         document.formcustomdata.magnitude[0].disabled=false;
+        document.formcustomdata.magnitude[1].disabled=false;
+        document.formcustomdata.magnitude[2].disabled=false;
+        document.formcustomdata.magnitude[3].disabled=false;
+        document.formcustomdata.magnitude[0].checked=true;
         document.formcustomdata.magnituderange.min="2.5";
+        if (document.formcustomdata.time[1].checked==true){
+        document.formcustomdata.magnitude[1].checked=true;
+        document.formcustomdata.magnituderange.min="4.5";
+        }
     }    
     else if (document.formcustomdata.time[2].checked==true){
         document.formcustomdata.magnitude[0].disabled=true;
+        document.formcustomdata.magnitude[1].disabled=false;
+        document.formcustomdata.magnitude[2].disabled=false;
+        document.formcustomdata.magnitude[3].disabled=false;
         document.formcustomdata.magnituderange.min="4.5";
-        if (document.formcustomdata.magnitude[3].checked==false){
+        if (document.formcustomdata.magnitude[2].checked==false){
         document.formcustomdata.magnitude[2].checked=true;
         }
+    }
     else if (document.formcustomdata.time[3].checked==true){
-        document.formcustomdata.magnitude[0].disabled=true;
+        document.formcustomdata.magnitude[0].disabled=false;
+        document.formcustomdata.magnitude[1].disabled=false;
+        document.formcustomdata.magnitude[2].disabled=false;
+        document.formcustomdata.magnitude[3].checked=true;
         customTime();
-        }
+       $('#customRange').show();
     }
 }
 
