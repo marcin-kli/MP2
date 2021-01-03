@@ -1,13 +1,23 @@
 // seperate js file for a map
-
+// get map API
 var mymap = L.map('mapid', {
-    center: [52.0500000, -9.5166700],
+    center: [21.8358, 73.4233],
     zoom: 2,
     
     });
 
 L.tileLayer('https://tile.thunderforest.com/atlas/{z}/{x}/{y}{r}.png?apikey=5f689cbf6660484fa5c1a63e197f6d32', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> , Maps © <a href="http://www.thunderforest.com/">thunderforest</a>',
-    maxZoom: 18,
+    maxZoom: 11,
     tileSize: 256,
 }).addTo(mymap);
+
+// add data on the map https://leafletjs.com/reference-1.7.1.html#geojson
+function getmap(){
+
+var geoJsonLayer = L.geoJSON(data) .addTo(mymap);
+geoJsonLayer.eachLayer(function(layer) {
+   layer.bindPopup("Place: "+layer.feature.properties.place+"<br>Magnitude: "+layer.feature.properties.mag);
+
+})
+}

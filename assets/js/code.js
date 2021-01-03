@@ -9,7 +9,7 @@ $(document).ready(function () {
     
     // hide all card bodys and map 
     $(".card-body").hide();
-    // $("#map").hide();
+    $("#mapid").hide();
 
     //hide buttons and features
     $("#lastEarthquakesButton-back").hide();
@@ -23,6 +23,10 @@ $(document).ready(function () {
 
     $("#knowledge-show").click(function(){
     $("#knowledge .card-body").toggle();
+    })
+    
+    $("#map .card-header").click(function(){
+    $("#mapid").toggle();
     })
 
     //create current day in format: yyyy-mm-dd
