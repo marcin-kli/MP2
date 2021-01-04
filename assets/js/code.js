@@ -52,7 +52,7 @@ $('#iconMap i').click(function(){
         $("#greatestButton-back").hide();
         $("#greatestButton-map").hide();
         $('#knowledge').hide();
-        $('#card-body').hide();
+        $('#table').hide();
         $('#map').show();
         $('#map .card-header').hide();
         $('#mapid').height('87vh');
@@ -68,15 +68,43 @@ $('#iconMap i').click(function(){
         $('#greatest').show();
         $("#greatestButton-back").hide();
         $('#knowledge').show();
-        $('section').css('margin-top','0');
+        $('section').css('margin-top','7vh');
         $('section').css('padding','25vh 0');
         $('section').css('margin-bottom','0');
+        $('#loadingData').html("<h1>LOADING</h1>");
         removemap();
     }
 })
 
     //***********************  SETTINGS ICON  ******************
 
+$('#iconSettings i').click(function(){
+    if ($(this).css("color") == "rgb(250, 250, 250)") {
+        $(this).css('color','#85D945');
+        $('section').css('margin-top','7vh');
+        $('section').css('padding','0');
+        $('section').css('margin-bottom','5vh');
+        $('#lastEarthquakes').hide();
+        $('#greatest').hide();
+        $('#knowledge').hide();
+        $('#table').hide();
+        $("#map").hide();
+        $("#customData").show();
+    }
+    
+    else{
+        $(this).css('color','#fafafa');
+        $('#lastEarthquakes').show();
+        $('#greatest').show();
+        $('#knowledge').show();
+        $('#table').hide();
+        $("#map").hide();
+        $('#customData').hide();
+        $('section').css('margin-top','7vh');
+        $('section').css('padding','25vh 0');
+        $('section').css('margin-bottom','0');
+    }
+})
 
     //***********************  HELP ICON  **********************
 
@@ -100,7 +128,7 @@ $('#greatest').click(function(){
         $('#knowledge').hide();
         $("#greatestButton-map").show();
         $("#greatestButton-back").show();
-        $('#card-body').show();
+        $('#table').show();
         magnitude = 8.4
         otherDay="1727-11-10";
         //print greatest earthquakes to table
@@ -108,17 +136,18 @@ $('#greatest').click(function(){
     }
     else if($('#iconMap i').css('color') == 'rgb(133, 217, 69)'){
         $('#loadingData').html("<h1>LOADING</h1>");
-        $('#card-body').hide();
+        $('#table').hide();
         $("#greatestButton-map").hide();
         $("#greatestButton-back").show();
     }
     else if(($('#iconMap i').css('color') == 'rgb(133, 217, 69)')&&($("#greatestButton-back").hide())){
         $('#loadingData').html("<h1>LOADING</h1>");
+        $('#table').hide();
         removemap();
     }
     else{
         $('#loadingData').html("<h1>LOADING</h1>");
-        $('#card-body').hide();
+        $('#table').hide();
         $("#greatestButton-map").hide();
         $("#greatestButton-back").hide();
         $('#map').hide();
@@ -176,14 +205,7 @@ function showMap(){
 
    //show LAST EARTHQUAKES data 
 function showLastEarthquakesData(){
-    $('section').css('margin-top','7vh');
-    $('section').css('padding','0');
-    $('section').css('margin-bottom','5vh');
-    $('#greatest').hide();
-    $('#knowledge').hide();
-    $("#lastEarthquakesButton-show").hide();
-    $("#lastEarthquakesButton-back").show();
-    $("#customdata").show();
+    
 }
 
     // select custom magnitude in custom search
@@ -219,8 +241,8 @@ function search(){
     otherDay= (new Date(otherDay)).toISOString().substring(0, 10);
     console.log("C " +currentDay);
     console.log("O " + otherDay);
-    $("#customdata").hide();
-    $('#card-body').show();
+    $("#customData").hide();
+    $('#table').show();
     $('#loadingData').html("<h1>LOADING</h1>");
     printintable(magnitude, otherDay, currentDay);
 }
@@ -353,8 +375,8 @@ function showMagnitudeValue(){
 function hideLastEarthquakesData(){
 
     $('#loadingData').html("<h1>LOADING</h1>");
-    $('#card-body').hide();
-    $('#customdata').hide();
+    $('#table').hide();
+    $('#customData').hide();
     $("#lastEarthquakesButton-show").show();
     $("#lastEarthquakesButton-back").hide();
     $('#greatest').show();
