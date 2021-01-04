@@ -248,12 +248,6 @@ function showMap(){
     $('#mapid').css('margin','0 2vw 0 2vw');
 }
 
-
-   //show LAST EARTHQUAKES data 
-function showLastEarthquakesData(){
-    
-}
-
     // select custom magnitude in custom search
 function search(){
     
@@ -415,18 +409,4 @@ function showMagnitudeValue(){
     slider.oninput = function() {
     output.innerHTML = this.value;
     }
-}
-
- //back button for LAST EARTHQUAKES data 
-function hideLastEarthquakesData(){
-
-    $('#loadingData').html("<h1>LOADING</h1>");
-    $('#table').hide();
-    $('#customData').hide();
-    $("#lastEarthquakesButton-show").show();
-    $("#lastEarthquakesButton-back").hide();
-    $('#greatest').show();
-    $('#knowledge').show();
-    $('section').css('padding','25vh 0');
-    $('section').css('margin-bottom','0');
 }
