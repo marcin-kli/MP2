@@ -49,7 +49,10 @@ $('#iconMap i').click(function(){
         $(this).css('color','#85D945');
         $('#lastEarthquakes').hide();
         $('#greatest').hide();
+        $("#greatestButton-back").hide();
+        $("#greatestButton-map").hide();
         $('#knowledge').hide();
+        $('#card-body').hide();
         $('#map').show();
         $('#map .card-header').hide();
         $('#mapid').height('87vh');
@@ -63,6 +66,7 @@ $('#iconMap i').click(function(){
         $('#map').hide();
         $('#lastEarthquakes').show();
         $('#greatest').show();
+        $("#greatestButton-back").hide();
         $('#knowledge').show();
         $('section').css('margin-top','0');
         $('section').css('padding','25vh 0');
@@ -82,12 +86,15 @@ $('#iconMap i').click(function(){
 
     //********  G R E A T E S T  E A R T H Q U A K E S  ********
 
+        //***** Show data *****
+
 $('#greatest').click(function(){
-    console.log($('#loadingData').html());
     if ($('#loadingData').html() == "<h1>LOADING</h1>") {
         $('section').css('margin-top','7vh');
         $('section').css('padding','0');
         $('section').css('margin-bottom','5vh');
+        $('#iconMap i').css('color','#fafafa');
+        $('#map').hide();
         $('#lastEarthquakes').hide();
         $('#knowledge').hide();
         $("#greatestButton-map").show();
@@ -98,17 +105,25 @@ $('#greatest').click(function(){
         //print greatest earthquakes to table
         printintable(magnitude, otherDay, currentDay)
     }
+    else if($('#iconMap i').css('color') == 'rgb(133, 217, 69)'){
+        $('#loadingData').html("<h1>LOADING</h1>");
+        $('#loadingData').html("<h1>LOADING</h1>");
+        $('#card-body').hide();
+        $("#greatestButton-map").hide();
+        $("#greatestButton-back").show();
+    }
     else{
         $('#loadingData').html("<h1>LOADING</h1>");
         $('#card-body').hide();
         $("#greatestButton-map").hide();
         $("#greatestButton-back").hide();
+        $('#map').hide();
         $('#lastEarthquakes').show();
         $('#knowledge').show();
         $('section').css('padding','25vh 0');
         $('section').css('margin-bottom','0');
     }
-})
+ })
 
     //**************  K N O W L E D G E  B A S E  **************
 
@@ -143,6 +158,18 @@ openUSGSAPI(magnitude, otherDay, currentDay, function(data){
     })
 }
 
+ //***** Show on map *****
+function showMap(){
+    getmap();
+    $('#iconMap i').css('color','#85D945');
+    $('#map').show();
+    $('#map .card-header').hide();
+    $('#mapid').height('78vh');
+    $('#mapid').css('margin','0 2vw 0 2vw');
+    $('section').css('margin-top','7vh');
+    $('section').css('padding','0');
+    $('section').css('margin-bottom','5.5vh');
+}
 
 
    //show LAST EARTHQUAKES data 
