@@ -37,6 +37,9 @@ $(document).ready(function () {
 
 //*********************** N A V I G A T I O N ***********************
 
+    //*********************** LIST ICON **********************
+
+
     //*********************** MAP ICON *********************** 
 $('#iconMap i').click(function(){
     console.log($(this).css('color'))
@@ -64,6 +67,11 @@ $('#iconMap i').click(function(){
         $('section').css('margin-bottom','0');
     }
 })
+
+    //*********************** SETTINGS ICON ******************
+
+
+    //*********************** HELP ICON **********************
 
 
     //open USGS API//

@@ -88,6 +88,7 @@ section{
 }
 
 .card-header{
+    height: 3.75em;
     margin: 5px 0 5px;
     background-color:#233CCC;
     opacity: 0.8;
