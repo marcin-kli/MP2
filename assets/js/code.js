@@ -14,6 +14,7 @@ $(document).ready(function () {
     //hide buttons and features
     $("#lastEarthquakesButton-back").hide();
     $("#greatestButton-back").hide();
+    $("#greatestButton-map").hide();
     $("#knowledge-hide").hide();
     $("#customRange").hide();
     $("#customTime").hide();
@@ -35,12 +36,13 @@ $(document).ready(function () {
 });
 
 
-//*********************** N A V I G A T I O N ***********************
+//***********************  N A V I G A T I O N  *********************
 
-    //*********************** LIST ICON **********************
+    //***********************  LIST ICON  **********************
 
 
-    //*********************** MAP ICON *********************** 
+    //***********************  MAP ICON  ***********************
+
 $('#iconMap i').click(function(){
     console.log($(this).css('color'))
     if ($(this).css("color") == "rgb(250, 250, 250)") {
@@ -68,10 +70,47 @@ $('#iconMap i').click(function(){
     }
 })
 
-    //*********************** SETTINGS ICON ******************
+    //***********************  SETTINGS ICON  ******************
 
 
-    //*********************** HELP ICON **********************
+    //***********************  HELP ICON  **********************
+
+
+//***********************   M A I N  P A G E   **********************
+
+    //************  L A S T  E A R T H Q U A K E S  ************
+
+    //********  G R E A T E S T  E A R T H Q U A K E S  ********
+
+$('#greatest').click(function(){
+    console.log($('#loadingData').html());
+    if ($('#loadingData').html() == "<h1>LOADING</h1>") {
+        $('section').css('margin-top','7vh');
+        $('section').css('padding','0');
+        $('section').css('margin-bottom','5vh');
+        $('#lastEarthquakes').hide();
+        $('#knowledge').hide();
+        $("#greatestButton-map").show();
+        $("#greatestButton-back").show();
+        $('#card-body').show();
+        magnitude = 8.4
+        otherDay="1727-11-10";
+        //print greatest earthquakes to table
+        printintable(magnitude, otherDay, currentDay)
+    }
+    else{
+        $('#loadingData').html("<h1>LOADING</h1>");
+        $('#card-body').hide();
+        $("#greatestButton-map").hide();
+        $("#greatestButton-back").hide();
+        $('#lastEarthquakes').show();
+        $('#knowledge').show();
+        $('section').css('padding','25vh 0');
+        $('section').css('margin-bottom','0');
+    }
+})
+
+    //**************  K N O W L E D G E  B A S E  **************
 
 
     //open USGS API//
@@ -104,34 +143,7 @@ openUSGSAPI(magnitude, otherDay, currentDay, function(data){
     })
 }
 
-    //show 20 GREATEST EARTHQUAKES data
-function showGratestData() {
-    $('section').css('margin-top','7vh');
-    $('section').css('padding','0');
-    $('section').css('margin-bottom','5vh');
-    $('#lastEarthquakes').hide();
-    $('#knowledge').hide();
-    $("#greatestButton-show").hide();
-    $("#greatestButton-back").show();
-    $('#card-body').show();
-    magnitude = 8.4
-    otherDay="1727-11-10";
-    //print greatest earthquakes to table
-    printintable(magnitude, otherDay, currentDay)
-}
 
-    //back button for 20 GREATEST EARTHQUAKES data
-function hideGratestData(){
-
-    $('#loadingData').html("<h1>LOADING</h1>");
-    $('#card-body').hide();
-    $("#greatestButton-show").show();
-    $("#greatestButton-back").hide();
-    $('#lastEarthquakes').show();
-    $('#knowledge').show();
-    $('section').css('padding','25vh 0');
-    $('section').css('margin-bottom','0');
-}
 
    //show LAST EARTHQUAKES data 
 function showLastEarthquakesData(){
