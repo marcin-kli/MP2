@@ -13,6 +13,7 @@ $(document).ready(function () {
 
     //hide buttons and features
     $("#lastEarthquakesButton-back").hide();
+    $("#lastEarthquakesButton-map").hide();
     $("#greatestButton-back").hide();
     $("#greatestButton-map").hide();
     $("#knowledge-hide").hide();
@@ -51,6 +52,8 @@ $('#iconMap i').click(function(){
         $('#greatest').hide();
         $("#greatestButton-back").hide();
         $("#greatestButton-map").hide();
+        $("#lastEarthquakesButton-back").hide();
+        $("#lastEarthquakesButton-map").hide();
         $('#knowledge').hide();
         $('#table').hide();
         $('#map').show();
@@ -66,6 +69,7 @@ $('#iconMap i').click(function(){
         $('#map').hide();
         $('#lastEarthquakes').show();
         $('#greatest').show();
+        $("#lastEarthquakesButton-back").hide();
         $("#greatestButton-back").hide();
         $('#knowledge').show();
         $('section').css('margin-top','7vh');
@@ -113,6 +117,48 @@ $('#iconSettings i').click(function(){
 
     //************  L A S T  E A R T H Q U A K E S  ************
 
+        //***** Show data *****
+
+$('#lastEarthquakes').click(function(){
+    if ($('#loadingData').html() == "<h1>LOADING</h1>") {
+        $('section').css('margin-top','7vh');
+        $('section').css('padding','0');
+        $('section').css('margin-bottom','5.5vh');
+        $('#iconMap i').css('color','#fafafa');
+        $('#map').hide();
+        $('#greatest').hide();
+        $('#knowledge').hide();
+        $("#lastEarthquakesButton-map").show();
+        $("#lastEarthquakesButton-back").show();
+        $('#table').show();
+        //set default data from search and print as last earthquakes into table
+        search();
+    }
+    else if($('#iconMap i').css('color') == 'rgb(133, 217, 69)'){
+        $('#loadingData').html("<h1>LOADING</h1>");
+        $('#table').hide();
+        $("#lastEarthquakesButton-map").hide();
+        $("#lastEarthquakesButton-back").show();
+    }
+    else if(($('#iconMap i').css('color') == 'rgb(133, 217, 69)')&&($("#lastEarthquakesButton-back").hide())){
+        $('#loadingData').html("<h1>LOADING</h1>");
+        $('#table').hide();
+        removemap();
+    }
+    else{
+        $('#loadingData').html("<h1>LOADING</h1>");
+        $('#table').hide();
+        $("#lastEarthquakesButton-map").hide();
+        $("#lastEarthquakesButton-back").hide();
+        $('#map').hide();
+        $('#greatest').show();
+        $('#knowledge').show();
+        $('section').css('padding','25vh 0');
+        $('section').css('margin-bottom','0');
+        removemap();
+    }
+ })
+
     //********  G R E A T E S T  E A R T H Q U A K E S  ********
 
         //***** Show data *****
@@ -129,7 +175,7 @@ $('#greatest').click(function(){
         $("#greatestButton-map").show();
         $("#greatestButton-back").show();
         $('#table').show();
-        magnitude = 8.4
+        magnitude = 8.4;
         otherDay="1727-11-10";
         //print greatest earthquakes to table
         printintable(magnitude, otherDay, currentDay)
