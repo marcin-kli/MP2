@@ -89,13 +89,14 @@ section{
 
 .card-header{
     height: 3.75em;
-    margin: 5px 0 5px;
+    margin: 0.75em 0 0.25em;
     background-color:#233CCC;
     opacity: 0.8;
     border: 2px solid #ffffff;
     border-radius: 15px !important;
     justify-content: space-between;
     display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -109,7 +110,7 @@ section{
 }
 
 .card-body{
-    margin: -5px 1em 1em 1em;
+    margin: -0.3em 0.5em 2.75em 0.5em;
     padding: 0;
     background-color:#7090D0;
     opacity: 0.9;

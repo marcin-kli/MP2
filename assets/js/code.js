@@ -71,6 +71,7 @@ $('#iconMap i').click(function(){
         $('section').css('margin-top','0');
         $('section').css('padding','25vh 0');
         $('section').css('margin-bottom','0');
+        removemap();
     }
 })
 
@@ -92,7 +93,7 @@ $('#greatest').click(function(){
     if ($('#loadingData').html() == "<h1>LOADING</h1>") {
         $('section').css('margin-top','7vh');
         $('section').css('padding','0');
-        $('section').css('margin-bottom','5vh');
+        $('section').css('margin-bottom','5.5vh');
         $('#iconMap i').css('color','#fafafa');
         $('#map').hide();
         $('#lastEarthquakes').hide();
@@ -107,10 +108,13 @@ $('#greatest').click(function(){
     }
     else if($('#iconMap i').css('color') == 'rgb(133, 217, 69)'){
         $('#loadingData').html("<h1>LOADING</h1>");
-        $('#loadingData').html("<h1>LOADING</h1>");
         $('#card-body').hide();
         $("#greatestButton-map").hide();
         $("#greatestButton-back").show();
+    }
+    else if(($('#iconMap i').css('color') == 'rgb(133, 217, 69)')&&($("#greatestButton-back").hide())){
+        $('#loadingData').html("<h1>LOADING</h1>");
+        removemap();
     }
     else{
         $('#loadingData').html("<h1>LOADING</h1>");
@@ -122,6 +126,7 @@ $('#greatest').click(function(){
         $('#knowledge').show();
         $('section').css('padding','25vh 0');
         $('section').css('margin-bottom','0');
+        removemap();
     }
  })
 
@@ -151,7 +156,7 @@ openUSGSAPI(magnitude, otherDay, currentDay, function(data){
         data=data.features;
         $('#datadisplay-table').html("<table class='table-active'><thead><tr><th rowspan='2'>Date</th> <th rowspan='2'>Place</th><th rowspan='2'>Magnitude</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr></thead></table>")
         data.forEach(function(item) {
-            document.getElementById('datadisplay-table').innerHTML += "<table><tr><td>" +(new Date(item.properties.time)).toLocaleDateString()+"</td>"+"<td>"+item.properties.place+"</td>"+"<td>"+ item.properties.mag +"</td>"+"<td>"+ item.geometry.coordinates[0]+ "</td><td>" +item.geometry.coordinates[1]+"</td></tr></table>"
+            document.getElementById('datadisplay-table').innerHTML += "<table><tr><td>" +(new Date(item.properties.time)).toLocaleDateString()+"</td>"+"<td>"+item.properties.place+"</td>"+"<td>"+ item.properties.mag +"</td>"+"<td>"+ item.geometry.coordinates[0]+ "</td><td>"+item.geometry.coordinates[1]+"</td></tr></table>"
         });
     console.log(data.length);
     $('#loadingData').html("")
@@ -164,11 +169,8 @@ function showMap(){
     $('#iconMap i').css('color','#85D945');
     $('#map').show();
     $('#map .card-header').hide();
-    $('#mapid').height('78vh');
+    $('#mapid').height('75vh');
     $('#mapid').css('margin','0 2vw 0 2vw');
-    $('section').css('margin-top','7vh');
-    $('section').css('padding','0');
-    $('section').css('margin-bottom','5.5vh');
 }
 
 

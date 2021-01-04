@@ -13,12 +13,19 @@ L.tileLayer('https://tile.thunderforest.com/atlas/{z}/{x}/{y}{r}.png?apikey=5f68
     tileSize: 256,
 }).addTo(mymap);
 
-// add data on the map https://leafletjs.com/reference-1.7.1.html#geojson
+// remove layer from the map
+function removemap(){
+    if (geoJsonLayer._initHooksCalled==true){
+        geoJsonLayer.removeFrom(mymap);
+    }   
+}
+ 
+// add data to the layer on the map https://leafletjs.com/reference-1.7.1.html#geojson
 function getmap(){
-    $('section').css('margin-top','51px');
+    $('section').css('margin-top','7vh');
     $('section').css('padding','0');
     $('section').css('margin-bottom','5.5vh')
-var geoJsonLayer = L.geoJSON(data) .addTo(mymap);
+geoJsonLayer = L.geoJSON(data) .addTo(mymap);
 geoJsonLayer.eachLayer(function(layer) {
    layer.bindPopup("Place: "+layer.feature.properties.place+"<br>Magnitude: "+layer.feature.properties.mag);
 
