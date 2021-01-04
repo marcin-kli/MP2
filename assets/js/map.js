@@ -8,6 +8,7 @@ var mymap = L.map('mapid', {
 
 L.tileLayer('https://tile.thunderforest.com/atlas/{z}/{x}/{y}{r}.png?apikey=5f689cbf6660484fa5c1a63e197f6d32', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> , Maps © <a href="http://www.thunderforest.com/">thunderforest</a>',
+    minZoom: 2,
     maxZoom: 11,
     tileSize: 256,
 }).addTo(mymap);

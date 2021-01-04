@@ -7,9 +7,9 @@
 
 $(document).ready(function () {
     
-    // hide all card bodys and map 
+    // hide card bodys and map 
     $(".card-body").hide();
-    $("#mapid").hide();
+    $("#map").hide();
 
     //hide buttons and features
     $("#lastEarthquakesButton-back").hide();
@@ -24,10 +24,6 @@ $(document).ready(function () {
     $("#knowledge-show").click(function(){
     $("#knowledge .card-body").toggle();
     })
-    
-    $("#map .card-header").click(function(){
-    $("#mapid").toggle();
-    })
 
     //create current day in format: yyyy-mm-dd
     //create current day in format: yyyy-mm-dd (to include current day I need to add one day)
@@ -37,6 +33,38 @@ $(document).ready(function () {
     document.getElementById("datefrom").defaultValue = otherDay;
     document.getElementById("dateuntil").defaultValue = currentDay; 
 });
+
+
+//*********************** N A V I G A T I O N ***********************
+
+    //*********************** MAP ICON *********************** 
+$('#iconMap i').click(function(){
+    console.log($(this).css('color'))
+    if ($(this).css("color") == "rgb(250, 250, 250)") {
+        $(this).css('color','#85D945');
+        $('#lastEarthquakes').hide();
+        $('#greatest').hide();
+        $('#knowledge').hide();
+        $('#map').show();
+        $('#map .card-header').hide();
+        $('#mapid').height('87vh');
+        $('#mapid').css('margin','0 2vw 0 2vw');
+        $('section').css('margin-top','7vh');
+        $('section').css('padding','0');
+        $('section').css('margin-bottom','5.5vh');
+    }
+    else{
+        $(this).css('color','#fafafa');
+        $('#map').hide();
+        $('#lastEarthquakes').show();
+        $('#greatest').show();
+        $('#knowledge').show();
+        $('section').css('margin-top','0');
+        $('section').css('padding','25vh 0');
+        $('section').css('margin-bottom','0');
+    }
+})
+
 
     //open USGS API//
 function openUSGSAPI(magnitude, otherDay, currentDay, callback){
