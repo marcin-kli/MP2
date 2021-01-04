@@ -87,10 +87,9 @@ $('#datadisplay-table').html("");
 openUSGSAPI(magnitude, otherDay, currentDay, function(data){
     console.log(data);
         data=data.features;
-        $('#datadisplay-table').html("<table class='table-active'><thead><tr><th rowspan='2'>Magnitude</th> <th rowspan='2'>Place</th><th rowspan='2'>Date</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr></thead></table>")
+        $('#datadisplay-table').html("<table class='table-active'><thead><tr><th rowspan='2'>Date</th> <th rowspan='2'>Place</th><th rowspan='2'>Magnitude</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr></thead></table>")
         data.forEach(function(item) {
-            document.getElementById('datadisplay-table').innerHTML += "<table><tr><td>" +item.properties.mag+"</td>"+"<td>"+item.properties.place+"</td>"+"<td>"
-            + (new Date(item.properties.time)).toLocaleDateString() +"</td>"+"<td>"+ item.geometry.coordinates[0]+ "</td><td>" +item.geometry.coordinates[1]+"</td></tr></table>"
+            document.getElementById('datadisplay-table').innerHTML += "<table><tr><td>" +(new Date(item.properties.time)).toLocaleDateString()+"</td>"+"<td>"+item.properties.place+"</td>"+"<td>"+ item.properties.mag +"</td>"+"<td>"+ item.geometry.coordinates[0]+ "</td><td>" +item.geometry.coordinates[1]+"</td></tr></table>"
         });
     console.log(data.length);
     $('#loadingData').html("")
@@ -99,7 +98,7 @@ openUSGSAPI(magnitude, otherDay, currentDay, function(data){
 
     //show 20 GREATEST EARTHQUAKES data
 function showGratestData() {
-
+    $('section').css('margin-top','7vh');
     $('section').css('padding','0');
     $('section').css('margin-bottom','5vh');
     $('#lastEarthquakes').hide();
@@ -128,7 +127,7 @@ function hideGratestData(){
 
    //show LAST EARTHQUAKES data 
 function showLastEarthquakesData(){
-    
+    $('section').css('margin-top','7vh');
     $('section').css('padding','0');
     $('section').css('margin-bottom','5vh');
     $('#greatest').hide();
