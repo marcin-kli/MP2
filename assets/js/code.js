@@ -21,12 +21,6 @@ $(document).ready(function () {
     $("#customTime").hide();
     $("#showMagnitudeValueText").hide();
 
-    //show buttons to select on main page
-
-    $("#knowledge-show").click(function(){
-    $("#knowledge .card-body").toggle();
-    });
-
     //create current day in format: yyyy-mm-dd
     //create current day in format: yyyy-mm-dd (to include current day I need to add one day)
     currentDay = (new Date(currentDay.getTime()+oneday)).toISOString().substring(0, 10);
@@ -208,6 +202,10 @@ $('#greatest').click(function(){
     //**************  K N O W L E D G E  B A S E  **************
 
 
+    $("#knowledge").click(function(){
+        $("#knowledge .card-body").toggle();
+    });
+
     //open USGS API//
 function openUSGSAPI(magnitude, otherDay, currentDay, callback){
     var xhr = new XMLHttpRequest();
@@ -246,19 +244,19 @@ $('.table-hover').on('click', 'tbody tr', function() {
     var Latitude = this.lastElementChild.innerHTML;
     var parent = this.parent;
     var ooo = this.childNodes;
-    console.log(this);
+    
     alert('Display this earthquake in:\n' + (ooo[1].innerHTML) + '\non the map');
     getpoint(ooo);
     $('#map').show();
     $('#map .card-header').show();
-    $('#mapid').height('50vh');
+    $('#mapid').height('70vh');
     $('#table').hide();
  });
 
  $('#mapButton-back').click(function(){
      $('#map').hide();
      $('#table').show();
-     removemarker();
+
  });
 
  //***** Show on map *****
