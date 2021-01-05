@@ -25,7 +25,7 @@ $(document).ready(function () {
 
     $("#knowledge-show").click(function(){
     $("#knowledge .card-body").toggle();
-    })
+    });
 
     //create current day in format: yyyy-mm-dd
     //create current day in format: yyyy-mm-dd (to include current day I need to add one day)
@@ -45,7 +45,7 @@ $(document).ready(function () {
     //***********************  MAP ICON  ***********************
 
 $('#iconMap i').click(function(){
-    console.log($(this).css('color'))
+    console.log($(this).css('color'));
     if ($(this).css("color") == "rgb(250, 250, 250)") {
         $(this).css('color','#85D945');
         $('#lastEarthquakes').hide();
@@ -78,7 +78,7 @@ $('#iconMap i').click(function(){
         $('#loadingData').html("<h1>LOADING</h1>");
         removemap();
     }
-})
+});
 
     //***********************  SETTINGS ICON  ******************
 
@@ -108,7 +108,7 @@ $('#iconSettings i').click(function(){
         $('section').css('padding','25vh 0');
         $('section').css('margin-bottom','0');
     }
-})
+});
 
     //***********************  HELP ICON  **********************
 
@@ -157,7 +157,7 @@ $('#lastEarthquakes').click(function(){
         $('section').css('margin-bottom','0');
         removemap();
     }
- })
+ });
 
     //********  G R E A T E S T  E A R T H Q U A K E S  ********
 
@@ -178,7 +178,7 @@ $('#greatest').click(function(){
         magnitude = 8.4;
         otherDay="1727-11-10";
         //print greatest earthquakes to table
-        printintable(magnitude, otherDay, currentDay)
+        printintable(magnitude, otherDay, currentDay);
     }
     else if($('#iconMap i').css('color') == 'rgb(133, 217, 69)'){
         $('#loadingData').html("<h1>LOADING</h1>");
@@ -203,7 +203,7 @@ $('#greatest').click(function(){
         $('section').css('margin-bottom','0');
         removemap();
     }
- })
+ });
 
     //**************  K N O W L E D G E  B A S E  **************
 
@@ -219,8 +219,8 @@ function openUSGSAPI(magnitude, otherDay, currentDay, callback){
         if (this.readyState == 4 && this.status == 200) {
             data = JSON.parse(this.responseText);
             callback(data);
-        };
-    }
+        }
+    };
 }
 
  //display data from USGS API to the table
@@ -229,13 +229,16 @@ $('#datadisplay-table').html("");
 openUSGSAPI(magnitude, otherDay, currentDay, function(data){
     console.log(data);
         data=data.features;
-        $('#datadisplay-table').html("<table class='table-active'><thead><tr><th rowspan='2'>Date</th> <th rowspan='2'>Place</th><th rowspan='2'>Magnitude</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr></thead></table>")
+        $('#datadisplay-table-head').html("<tr><th rowspan='2'>Date</th> <th rowspan='2'>Place</th><th rowspan='2'>Magnitude</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr>");
+        
         data.forEach(function(item) {
-            document.getElementById('datadisplay-table').innerHTML += "<table><tr><td>" +(new Date(item.properties.time)).toLocaleDateString()+"</td>"+"<td>"+item.properties.place+"</td>"+"<td>"+ item.properties.mag +"</td>"+"<td>"+ item.geometry.coordinates[0]+ "</td><td>"+item.geometry.coordinates[1]+"</td></tr></table>"
+            //console.log(item)
+            document.getElementById('datadisplay-table').innerHTML += "<tr><td>" +(new Date(item.properties.time)).toLocaleDateString()+"</td>"+"<td>"+item.properties.place +"</td>"+"<td>"+ item.properties.mag +"</td>"+"<td>"+ item.geometry.coordinates[0] +"</td>"+"<td>"+ item.geometry.coordinates[1] +"</td></tr>"
+            
         });
     console.log(data.length);
-    $('#loadingData').html("")
-    })
+    $('#loadingData').html("");
+    });
 }
 
  //***** Show on map *****
@@ -408,5 +411,5 @@ function showMagnitudeValue(){
     output.innerHTML = slider.value;
     slider.oninput = function() {
     output.innerHTML = this.value;
-    }
+    };
 }
