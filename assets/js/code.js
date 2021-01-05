@@ -232,7 +232,6 @@ openUSGSAPI(magnitude, otherDay, currentDay, function(data){
         $('#datadisplay-table-head').html("<tr><th rowspan='2'>Date</th> <th rowspan='2'>Place</th><th rowspan='2'>Magnitude</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr>");
         
         data.forEach(function(item) {
-            //console.log(item)
             document.getElementById('datadisplay-table').innerHTML += "<tr><td>" +(new Date(item.properties.time)).toLocaleDateString()+"</td>"+"<td>"+item.properties.place +"</td>"+"<td>"+ item.properties.mag +"</td>"+"<td>"+ item.geometry.coordinates[0] +"</td>"+"<td>"+ item.geometry.coordinates[1] +"</td></tr>"
             
         });
@@ -240,6 +239,15 @@ openUSGSAPI(magnitude, otherDay, currentDay, function(data){
     $('#loadingData').html("");
     });
 }
+
+
+$('.table-hover').on('click', 'tbody tr', function() {
+    var Longitude = this.lastElementChild.previousSibling.innerHTML;
+    var Latitude = this.lastElementChild.innerHTML;
+    getpoint(Latitude, Longitude);
+    $('#map').show();
+     alert(Longitude + Latitude); 
+ });
 
  //***** Show on map *****
 function showMap(){

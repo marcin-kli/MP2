@@ -28,6 +28,13 @@ function getmap(){
 geoJsonLayer = L.geoJSON(data) .addTo(mymap);
 geoJsonLayer.eachLayer(function(layer) {
    layer.bindPopup("Place: "+layer.feature.properties.place+"<br>Magnitude: "+layer.feature.properties.mag);
-
 })
+}
+ 
+function getpoint(Latitude, Longitude){
+    $('section').css('margin-top','7vh');
+    $('section').css('padding','0');
+    $('section').css('margin-bottom','5.5vh')
+   
+var marker = L.marker([Latitude, Longitude]).bindPopup(Latitude +" " + Longitude).openPopup() .addTo(mymap);
 }
