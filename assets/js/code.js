@@ -244,9 +244,21 @@ openUSGSAPI(magnitude, otherDay, currentDay, function(data){
 $('.table-hover').on('click', 'tbody tr', function() {
     var Longitude = this.lastElementChild.previousSibling.innerHTML;
     var Latitude = this.lastElementChild.innerHTML;
-    getpoint(Latitude, Longitude);
+    var parent = this.parent;
+    var ooo = this.childNodes;
+    console.log(this);
+    alert('Display this earthquake in:\n' + (ooo[1].innerHTML) + '\non the map');
+    getpoint(ooo);
     $('#map').show();
-     alert(Longitude + Latitude); 
+    $('#map .card-header').show();
+    $('#mapid').height('50vh');
+    $('#table').hide();
+ });
+
+ $('#mapButton-back').click(function(){
+     $('#map').hide();
+     $('#table').show();
+     removemarker();
  });
 
  //***** Show on map *****
