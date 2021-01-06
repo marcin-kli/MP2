@@ -7,8 +7,10 @@
 
 $(document).ready(function () {
     
-    // hide card bodys and map 
-    $(".card-body").hide();
+    // hide card bodys and map
+    $("#loadingData").hide(); 
+    $("#knowledge .card-body").hide();
+    $("#customData").hide();
     $("#map").hide();
 
     //hide buttons and features
@@ -16,7 +18,7 @@ $(document).ready(function () {
     $("#lastEarthquakesButton-map").hide();
     $("#greatestButton-back").hide();
     $("#greatestButton-map").hide();
-    $("#knowledge-hide").hide();
+    $("#greatestButton-backlist").hide();
     $("#customRange").hide();
     $("#customTime").hide();
     $("#showMagnitudeValueText").hide();
@@ -38,71 +40,75 @@ $(document).ready(function () {
 
     //***********************  MAP ICON  ***********************
 
-$('#iconMap i').click(function(){
-    console.log($(this).css('color'));
-    if ($(this).css("color") == "rgb(250, 250, 250)") {
-        $(this).css('color','#85D945');
-        $('#lastEarthquakes').hide();
-        $('#greatest').hide();
-        $("#greatestButton-back").hide();
-        $("#greatestButton-map").hide();
-        $("#lastEarthquakesButton-back").hide();
-        $("#lastEarthquakesButton-map").hide();
-        $('#knowledge').hide();
-        $('#table').hide();
-        $('#map').show();
-        $('#map .card-header').hide();
-        $('#mapid').height('87vh');
-        $('#mapid').css('margin','0 2vw 0 2vw');
-        $('section').css('margin-top','7vh');
-        $('section').css('padding','0');
-        $('section').css('margin-bottom','5.5vh');
-    }
-    else{
-        $(this).css('color','#fafafa');
-        $('#map').hide();
-        $('#lastEarthquakes').show();
-        $('#greatest').show();
-        $("#lastEarthquakesButton-back").hide();
-        $("#greatestButton-back").hide();
-        $('#knowledge').show();
-        $('section').css('margin-top','7vh');
-        $('section').css('padding','25vh 0');
-        $('section').css('margin-bottom','0');
-        $('#loadingData').html("<h1>LOADING</h1>");
-        removemap();
-    }
-});
+// $('#iconMap i').click(function(){
+//     console.log($(this).css('color'));
+//     if ($(this).css("color") == "rgb(250, 250, 250)") {
+//         $(this).css('color','#85D945');
+//         $('#lastEarthquakes').hide();
+//         $('#greatest').hide();
+//         $("#greatestButton-back").hide();
+//         $("#greatestButton-map").hide();
+//         $("#lastEarthquakesButton-back").hide();
+//         $("#lastEarthquakesButton-map").hide();
+//         $('#knowledge').hide();
+//         $('#table').hide();
+//         $('#map').show();
+//         $('#map .card-header').hide();
+//         $('#mapid').height('87vh');
+//         $('#mapid').css('margin','0 2vw 0 2vw');
+//         $('section').css('margin-top','7vh');
+//         $('section').css('padding','0');
+//         $('section').css('margin-bottom','5.5vh');
+//     }
+//     else{
+//         $(this).css('color','#fafafa');
+//         $('#map').hide();
+//         $('#lastEarthquakes').show();
+//         $('#greatest').show();
+//         $("#lastEarthquakesButton-back").hide();
+//         $("#greatestButton-back").hide();
+//         $('#knowledge').show();
+//         $('section').css('margin-top','7vh');
+//         $('section').css('padding','25vh 0');
+//         $('section').css('margin-bottom','0');
+//         $('#loadingData').html("<h1>LOADING</h1>");
+//         removemap();
+//     }
+// });
 
     //***********************  SETTINGS ICON  ******************
 
-$('#iconSettings i').click(function(){
-    if ($(this).css("color") == "rgb(250, 250, 250)") {
-        $(this).css('color','#85D945');
-        $('section').css('margin-top','7vh');
-        $('section').css('padding','0');
-        $('section').css('margin-bottom','5vh');
-        $('#lastEarthquakes').hide();
-        $('#greatest').hide();
-        $('#knowledge').hide();
-        $('#table').hide();
-        $("#map").hide();
-        $("#customData").show();
-    }
+// $('#iconSettings i').click(function(){
+//     if ($(this).css("color") == "rgb(250, 250, 250)") {
+//         $(this).css('color','#85D945');
+//         $('section').css('margin-top','7vh');
+//         $('section').css('padding','0');
+//         $('section').css('margin-bottom','5vh');
+//         $('#lastEarthquakes').hide();
+//         $('#greatest').hide();
+//         $('#knowledge').hide();
+//         $('#table').hide();
+//         $("#map").hide();
+//         $("#customData").show();
+        
+//         $('#customData').css('padding','5em 0em 5em 0em');
+//     }
     
-    else{
-        $(this).css('color','#fafafa');
-        $('#lastEarthquakes').show();
-        $('#greatest').show();
-        $('#knowledge').show();
-        $('#table').hide();
-        $("#map").hide();
-        $('#customData').hide();
-        $('section').css('margin-top','7vh');
-        $('section').css('padding','25vh 0');
-        $('section').css('margin-bottom','0');
-    }
-});
+//     else{
+//         $(this).css('color','#fafafa');
+//         $('#lastEarthquakes').show();
+//         $('#greatest').show();
+//         $('#knowledge').show();
+//         $('#table').hide();
+//         $("#map").hide();
+//         $('#customData').hide();
+//         $('section').css('margin-top','7vh');
+//         $('section').css('padding','25vh 0');
+//         $('section').css('margin-bottom','0');
+//         $("#customData").hide();
+//         $("#customData .card-body").hide();
+//     }
+// });
 
     //***********************  HELP ICON  **********************
 
@@ -158,11 +164,10 @@ $('#lastEarthquakes').click(function(){
         //***** Show data *****
 
 $('#greatest').click(function(){
-    if ($('#loadingData').html() == "<h1>LOADING</h1>") {
         $('section').css('margin-top','7vh');
         $('section').css('padding','0');
         $('section').css('margin-bottom','5.5vh');
-        $('#iconMap i').css('color','#fafafa');
+        $('#iconList i').css('color','#85D945');
         $('#map').hide();
         $('#lastEarthquakes').hide();
         $('#knowledge').hide();
@@ -172,32 +177,9 @@ $('#greatest').click(function(){
         magnitude = 8.4;
         otherDay="1727-11-10";
         //print greatest earthquakes to table
+        removemap();
         printintable(magnitude, otherDay, currentDay);
-    }
-    else if($('#iconMap i').css('color') == 'rgb(133, 217, 69)'){
-        $('#loadingData').html("<h1>LOADING</h1>");
-        $('#table').hide();
-        $("#greatestButton-map").hide();
-        $("#greatestButton-back").show();
-    }
-    else if(($('#iconMap i').css('color') == 'rgb(133, 217, 69)')&&($("#greatestButton-back").hide())){
-        $('#loadingData').html("<h1>LOADING</h1>");
-        $('#table').hide();
-        removemap();
-    }
-    else{
-        $('#loadingData').html("<h1>LOADING</h1>");
-        $('#table').hide();
-        $("#greatestButton-map").hide();
-        $("#greatestButton-back").hide();
-        $('#map').hide();
-        $('#lastEarthquakes').show();
-        $('#knowledge').show();
-        $('section').css('padding','25vh 0');
-        $('section').css('margin-bottom','0');
-        removemap();
-    }
- });
+});
 
     //**************  K N O W L E D G E  B A S E  **************
 
@@ -205,6 +187,85 @@ $('#greatest').click(function(){
     $("#knowledge").click(function(){
         $("#knowledge .card-body").toggle();
     });
+
+//***** Go back to main page *****
+function backToMain(){
+    $('#lastEarthquakes').show();
+    $("#lastEarthquakesButton-map").hide();
+    $("#lastEarthquakesButton-back").hide();
+    $('#greatest').show();
+    $("#greatestButton-map").hide();
+    $("#greatestButton-back").hide();
+    $('#knowledge').show();
+    $('#loadingData').hide();
+    $("#customData").hide();
+    $("#map").hide();
+    $('#table').hide();
+    $('#iconList i').css('color','#fafafa');
+    $('#iconMap i').css('color','#fafafa');
+    $('section').css('margin-top','7vh');
+    $('section').css('padding','25vh 0');
+    $('section').css('margin-bottom','0');
+    removemap();
+ }
+
+//***** Show all points on the map *****
+function showMap(){
+    getmap();
+    $('#table').hide();
+    $('#iconMap i').css('color','#85D945');
+    $('#map').show();
+    $('#map .card-header').hide();
+    $('#mapid').height('75vh');
+    $('#mapid').css('margin','0 2vw 0 2vw');
+    $("#greatestButton-backlist").show();
+    $("#greatestButton-back").hide();
+}
+
+//***** Go back to list from show all points on the map  *****
+function backToList(){
+    $('#table').show();
+    $('#iconMap i').css('color','#fafafa');
+    $('#map').hide();
+    $('#map .card-header').hide();
+    $("#greatestButton-backlist").hide();
+    $("#greatestButton-back").show();
+    $('section').css('margin-top','7vh');
+    $('section').css('padding','0');
+    $('section').css('margin-bottom','5.5vh');
+    removemap();
+ }
+
+//***** Show single point on map *****
+
+$('.table-hover').on('click', 'tbody tr', function() {
+    var Longitude = this.lastElementChild.previousSibling.innerHTML;
+    var Latitude = this.lastElementChild.innerHTML;
+    var parent = this.parent;
+    var ooo = this.childNodes;
+    
+    alert('Display this earthquake in:\n' + (ooo[1].innerHTML) + '\non the map');
+    getpoint(ooo);
+    $('#map').show();
+    $('#map .card-header').show();
+    $('#mapid').height('70vh');
+    $('#iconMap i').css('color','#85D945');
+    $('#table').hide();
+    $("#greatestButton-backlist").show();
+    $("#greatestButton-back").hide();
+ });
+
+//***** Go back from single point map to list view *****
+ $('#mapButton-back').click(function(){
+    $('#map').hide();
+    $('#iconMap i').css('color','#fafafa');
+    $('#table').show();
+    $("#greatestButton-backlist").hide();
+    $("#greatestButton-back").show();
+     removemap();
+ });
+
+
 
     //open USGS API//
 function openUSGSAPI(magnitude, otherDay, currentDay, callback){
@@ -239,35 +300,6 @@ openUSGSAPI(magnitude, otherDay, currentDay, function(data){
 }
 
 
-$('.table-hover').on('click', 'tbody tr', function() {
-    var Longitude = this.lastElementChild.previousSibling.innerHTML;
-    var Latitude = this.lastElementChild.innerHTML;
-    var parent = this.parent;
-    var ooo = this.childNodes;
-    
-    alert('Display this earthquake in:\n' + (ooo[1].innerHTML) + '\non the map');
-    getpoint(ooo);
-    $('#map').show();
-    $('#map .card-header').show();
-    $('#mapid').height('70vh');
-    $('#table').hide();
- });
-
- $('#mapButton-back').click(function(){
-     $('#map').hide();
-     $('#table').show();
-
- });
-
- //***** Show on map *****
-function showMap(){
-    getmap();
-    $('#iconMap i').css('color','#85D945');
-    $('#map').show();
-    $('#map .card-header').hide();
-    $('#mapid').height('75vh');
-    $('#mapid').css('margin','0 2vw 0 2vw');
-}
 
     // select custom magnitude in custom search
 function search(){
@@ -302,7 +334,6 @@ function search(){
     otherDay= (new Date(otherDay)).toISOString().substring(0, 10);
     console.log("C " +currentDay);
     console.log("O " + otherDay);
-    $("#customData").hide();
     $('#table').show();
     $('#loadingData').html("<h1>LOADING</h1>");
     printintable(magnitude, otherDay, currentDay);

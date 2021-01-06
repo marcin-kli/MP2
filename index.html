@@ -18,11 +18,10 @@
         <nav class="navbar navbar-dark bg-dark nav-large fixed-top">
         <a class="navbar-brand uppercase" href="index.html">Earthquakes</a>
             <ul class="navbar-nav flex-nav">
-                <li>
+                <li id="iconList">
                     <i class="fa fa-list" aria-hidden="true"><span class="sr-only">(list)</span></i>      
                 </li>
                 <li id="iconMap"> 
-                    <!-- onclick="iconMap()" -->
                     <i class="fa fa-globe" aria-hidden="true"><span class="sr-only">(map)</span></i>
                 </li>
                 <li id="iconSettings">
@@ -50,12 +49,15 @@
         </div>
 
         <!-- greatest earthquakes section -->
-        <div class="card" id="greatest">
+        <div class="card">
             <div class="card-header uppercase" >
-                <h2>20 Greatest Earthquakes</h2>
+                <div id="greatest">
+                    <h2>20 Greatest Earthquakes</h2>
+                </div>
                 <div>
                     <button type="button" class="btn btn-dark uppercase" id="greatestButton-map" onclick="showMap()">show on map</button>
-                    <button type="button" class="btn btn-dark uppercase" id="greatestButton-back">back</button>
+                    <button type="button" class="btn btn-dark uppercase" id="greatestButton-back" onclick="backToMain()">back</button>
+                    <button type="button" class="btn btn-dark uppercase" id="greatestButton-backlist" onclick="backToList()">back</button>
                 </div>
             </div>
         </div>
@@ -75,6 +77,80 @@
             </div>
         </div>
 
+        <!-- customdata -->
+        <div class="card" id="customData">
+            <div class="card-header uppercase">
+                <h2>Custom search</h2>
+            </div>
+            <div class="card-body">
+                <form name="formcustomdata">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <fieldset class="form-check" id="fieldset1" onclick="disableMagnitude()">
+                                <legend>Select time period</legend>
+                                <div>
+                                    <input type="radio" name="time" id="timeLastDay" checked>
+                                    <label for="timeLastDay">Last day</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="time" id="timeLast7Days">
+                                    <label for="timeLast7Days">Last 7 days</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="time" id="timeLast30Days">
+                                    <label for="timeLast30Days">Last 30 days</label>
+                                </div>
+                                <div onclick="$('#customTime').show()">
+                                    <input type="radio" name="time" id="timeCustom" >
+                                    <label for="timeCustom">Custom</label>
+                                </div>
+                                <div id="customTime" onclick="setCustomTime()">
+                                    <div>
+                                        <label for="datefrom">From:</label>
+                                        <input type="date" id="datefrom" name="datefrom" onchange="customTime()">
+                                    </div>
+                                    <div>
+                                        <label for="dateuntil">Until:</label>
+                                        <input type="date" id="dateuntil" name="dateuntil">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-sm-6">
+                            <fieldset class="form-check" id="fieldset2">
+                                <legend>Select Magnitude</legend>
+                                <div>
+                                    <input type="radio" name="magnitude" id="magnitude2.5" value="2.5" checked>
+                                    <label for="magnitude2.5">+ 2.5</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="magnitude" id="magnitude4.5" value="4.5">
+                                    <label for="magnitude4.5">+ 4.5</label>
+                                </div>
+                                <div >
+                                    <input type="radio" name="magnitude" id="magnitude6.5" value="6.5">
+                                    <label for="magnitude6.5">+ 6.5</label>
+                                </div>
+                                <div onclick="$('#customRange').show()">
+                                    <input type="radio" name="magnitude" id="magnitudeCustom">
+                                    <label for="magnitudeCustom">Custom</label>
+                                    <span id="showMagnitudeValueText"></span>
+                                </div>
+                                <div id="customRange">
+                                    <label for="customRange">Choose range</label>
+                                    <input type="range" name="magnituderange" min="2.5" max="9.5" step="0.5" value="7.5"
+                                    id="customRangeInput" onclick="setCustomMagnitude(), showMagnitudeValue()">
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </form>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-dark uppercase" style="width: 100%" onclick="search()">search</button>
+                </div>
+            </div>
+        </div>
+
         <!-- table for search data -->
         <div class="card-body" id="table">
             <div id="loadingData"><h1>LOADING</h1></div>
@@ -86,79 +162,10 @@
             </div>
         </div>
 
-        <!-- customdata -->
-        <div class="card-body" id="customData">
-            <form name="formcustomdata">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <fieldset class="form-check" id="fieldset1" onclick="disableMagnitude()">
-                            <legend>Select time period</legend>
-                            <div>
-                                <input type="radio" name="time" id="timeLastDay" checked>
-                                <label for="timeLastDay">Last day</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="time" id="timeLast7Days">
-                                <label for="timeLast7Days">Last 7 days</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="time" id="timeLast30Days">
-                                <label for="timeLast30Days">Last 30 days</label>
-                            </div>
-                            <div onclick="$('#customTime').show()">
-                                <input type="radio" name="time" id="timeCustom" >
-                                <label for="timeCustom">Custom</label>
-                            </div>
-                            <div id="customTime" onclick="setCustomTime()">
-                                <div>
-                                    <label for="datefrom">From:</label>
-                                    <input type="date" id="datefrom" name="datefrom" onchange="customTime()">
-                                </div>
-                                <div>
-                                    <label for="dateuntil">Until:</label>
-                                    <input type="date" id="dateuntil" name="dateuntil">
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="col-sm-6">
-                        <fieldset class="form-check" id="fieldset2">
-                            <legend>Select Magnitude</legend>
-                            <div>
-                                <input type="radio" name="magnitude" id="magnitude2.5" value="2.5" checked>
-                                <label for="magnitude2.5">+ 2.5</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="magnitude" id="magnitude4.5" value="4.5">
-                                <label for="magnitude4.5">+ 4.5</label>
-                            </div>
-                            <div >
-                                <input type="radio" name="magnitude" id="magnitude6.5" value="6.5">
-                                <label for="magnitude6.5">+ 6.5</label>
-                            </div>
-                            <div onclick="$('#customRange').show()">
-                                <input type="radio" name="magnitude" id="magnitudeCustom">
-                                <label for="magnitudeCustom">Custom</label>
-                                <span id="showMagnitudeValueText"></span>
-                            </div>
-                            <div id="customRange">
-                                <label for="customRange">Choose range</label>
-                                <input type="range" name="magnituderange" min="2.5" max="9.5" step="0.5" value="7.5"
-                                id="customRangeInput" onclick="setCustomMagnitude(), showMagnitudeValue()">
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-            </form>
-            <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn btn-dark uppercase" style="width: 100%" onclick="search()">search</button>
-            </div>
-        </div>
-
         <!-- map section -->
         <div id="map">
             <div class="card-header uppercase">
-                <h2>earthquakes Map</h2>
+                <h2>Selected point on the map</h2>
                  <button type="button" class="btn btn-dark uppercase" id="mapButton-back">back</button>
             </div>
             <div id="mapid"></div>

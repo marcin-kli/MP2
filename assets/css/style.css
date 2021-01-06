@@ -71,6 +71,8 @@ a{
 
 section{
     padding: 25vh 0;
+    margin-top: 7vh;
+    margin-bottom: 5.5vh;
     background-image: url("../images/pexels-pixabay-41953_00.jpg");
     background-repeat: no-repeat;
     background-position: 50% ;
@@ -79,6 +81,32 @@ section{
 @media screen and (max-width: 768px){
     section{
         background-size: 100%;
+    }
+}
+
+#greatest h2{
+    padding-right:50vw;
+    padding-top:1.75vh;
+    padding-bottom: 1.75vh;
+}
+@media screen and (max-width: 1000px) {
+    #greatest h2{
+        padding-right:30vw;
+        padding-top:1.25vh;
+        padding-bottom: 1.25vh;
+    }
+}
+@media screen and (max-width: 700px) {
+    #greatest h2{
+        padding:0;
+    }
+}
+@media screen and (max-width: 465px) {
+    #greatest h2{
+        padding:0;
+    }
+    .card-header button{
+        font-size:75%
     }
 }
 
