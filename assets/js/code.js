@@ -8,7 +8,7 @@
 $(document).ready(function () {
     
     // hide card bodys and map
-    $("#loadingData").hide(); 
+    $("#table").hide(); 
     $("#knowledge .card-body").hide();
     $("#customData").hide();
     $("#map").hide();
@@ -16,6 +16,7 @@ $(document).ready(function () {
     //hide buttons and features
     $("#lastEarthquakesButton-back").hide();
     $("#lastEarthquakesButton-map").hide();
+    $("#lastEarthquakesButton-backlist").hide();
     $("#greatestButton-back").hide();
     $("#greatestButton-map").hide();
     $("#greatestButton-backlist").hide();
@@ -40,76 +41,10 @@ $(document).ready(function () {
 
     //***********************  MAP ICON  ***********************
 
-// $('#iconMap i').click(function(){
-//     console.log($(this).css('color'));
-//     if ($(this).css("color") == "rgb(250, 250, 250)") {
-//         $(this).css('color','#85D945');
-//         $('#lastEarthquakes').hide();
-//         $('#greatest').hide();
-//         $("#greatestButton-back").hide();
-//         $("#greatestButton-map").hide();
-//         $("#lastEarthquakesButton-back").hide();
-//         $("#lastEarthquakesButton-map").hide();
-//         $('#knowledge').hide();
-//         $('#table').hide();
-//         $('#map').show();
-//         $('#map .card-header').hide();
-//         $('#mapid').height('87vh');
-//         $('#mapid').css('margin','0 2vw 0 2vw');
-//         $('section').css('margin-top','7vh');
-//         $('section').css('padding','0');
-//         $('section').css('margin-bottom','5.5vh');
-//     }
-//     else{
-//         $(this).css('color','#fafafa');
-//         $('#map').hide();
-//         $('#lastEarthquakes').show();
-//         $('#greatest').show();
-//         $("#lastEarthquakesButton-back").hide();
-//         $("#greatestButton-back").hide();
-//         $('#knowledge').show();
-//         $('section').css('margin-top','7vh');
-//         $('section').css('padding','25vh 0');
-//         $('section').css('margin-bottom','0');
-//         $('#loadingData').html("<h1>LOADING</h1>");
-//         removemap();
-//     }
-// });
 
     //***********************  SETTINGS ICON  ******************
 
-// $('#iconSettings i').click(function(){
-//     if ($(this).css("color") == "rgb(250, 250, 250)") {
-//         $(this).css('color','#85D945');
-//         $('section').css('margin-top','7vh');
-//         $('section').css('padding','0');
-//         $('section').css('margin-bottom','5vh');
-//         $('#lastEarthquakes').hide();
-//         $('#greatest').hide();
-//         $('#knowledge').hide();
-//         $('#table').hide();
-//         $("#map").hide();
-//         $("#customData").show();
-        
-//         $('#customData').css('padding','5em 0em 5em 0em');
-//     }
     
-//     else{
-//         $(this).css('color','#fafafa');
-//         $('#lastEarthquakes').show();
-//         $('#greatest').show();
-//         $('#knowledge').show();
-//         $('#table').hide();
-//         $("#map").hide();
-//         $('#customData').hide();
-//         $('section').css('margin-top','7vh');
-//         $('section').css('padding','25vh 0');
-//         $('section').css('margin-bottom','0');
-//         $("#customData").hide();
-//         $("#customData .card-body").hide();
-//     }
-// });
-
     //***********************  HELP ICON  **********************
 
 
@@ -120,44 +55,19 @@ $(document).ready(function () {
         //***** Show data *****
 
 $('#lastEarthquakes').click(function(){
-    if ($('#loadingData').html() == "<h1>LOADING</h1>") {
         $('section').css('margin-top','7vh');
         $('section').css('padding','0');
         $('section').css('margin-bottom','5.5vh');
-        $('#iconMap i').css('color','#fafafa');
+        $('#iconList i').css('color','#85D945');
         $('#map').hide();
-        $('#greatest').hide();
+        $('#greatest-card').hide();
         $('#knowledge').hide();
         $("#lastEarthquakesButton-map").show();
         $("#lastEarthquakesButton-back").show();
         $('#table').show();
         //set default data from search and print as last earthquakes into table
         search();
-    }
-    else if($('#iconMap i').css('color') == 'rgb(133, 217, 69)'){
-        $('#loadingData').html("<h1>LOADING</h1>");
-        $('#table').hide();
-        $("#lastEarthquakesButton-map").hide();
-        $("#lastEarthquakesButton-back").show();
-    }
-    else if(($('#iconMap i').css('color') == 'rgb(133, 217, 69)')&&($("#lastEarthquakesButton-back").hide())){
-        $('#loadingData').html("<h1>LOADING</h1>");
-        $('#table').hide();
-        removemap();
-    }
-    else{
-        $('#loadingData').html("<h1>LOADING</h1>");
-        $('#table').hide();
-        $("#lastEarthquakesButton-map").hide();
-        $("#lastEarthquakesButton-back").hide();
-        $('#map').hide();
-        $('#greatest').show();
-        $('#knowledge').show();
-        $('section').css('padding','25vh 0');
-        $('section').css('margin-bottom','0');
-        removemap();
-    }
- });
+});
 
     //********  G R E A T E S T  E A R T H Q U A K E S  ********
 
@@ -169,7 +79,7 @@ $('#greatest').click(function(){
         $('section').css('margin-bottom','5.5vh');
         $('#iconList i').css('color','#85D945');
         $('#map').hide();
-        $('#lastEarthquakes').hide();
+        $('#lastEarthquakes-card').hide();
         $('#knowledge').hide();
         $("#greatestButton-map").show();
         $("#greatestButton-back").show();
@@ -190,14 +100,15 @@ $('#greatest').click(function(){
 
 //***** Go back to main page *****
 function backToMain(){
-    $('#lastEarthquakes').show();
+    $('#lastEarthquakes-card').show();
     $("#lastEarthquakesButton-map").hide();
     $("#lastEarthquakesButton-back").hide();
-    $('#greatest').show();
+    $("#lastEarthquakesButton-backlist").hide();
+    $('#greatest-card').show();
     $("#greatestButton-map").hide();
     $("#greatestButton-back").hide();
+    $("#greatestButton-backlist").hide();
     $('#knowledge').show();
-    $('#loadingData').hide();
     $("#customData").hide();
     $("#map").hide();
     $('#table').hide();
@@ -218,8 +129,12 @@ function showMap(){
     $('#map .card-header').hide();
     $('#mapid').height('75vh');
     $('#mapid').css('margin','0 2vw 0 2vw');
+    $("#lastEarthquakesButton-backlist").show();
+    $("#lastEarthquakesButton-back").hide();
+    $("#lastEarthquakesButton-map").hide();
     $("#greatestButton-backlist").show();
     $("#greatestButton-back").hide();
+    $("#greatestButton-map").hide();
 }
 
 //***** Go back to list from show all points on the map  *****
@@ -228,8 +143,12 @@ function backToList(){
     $('#iconMap i').css('color','#fafafa');
     $('#map').hide();
     $('#map .card-header').hide();
+    $("#lastEarthquakesButton-backlist").hide();
+    $("#lastEarthquakesButton-back").show();
+    $("#lastEarthquakesButton-map").show();
     $("#greatestButton-backlist").hide();
     $("#greatestButton-back").show();
+    $("#greatestButton-map").show();
     $('section').css('margin-top','7vh');
     $('section').css('padding','0');
     $('section').css('margin-bottom','5.5vh');
@@ -251,6 +170,8 @@ $('.table-hover').on('click', 'tbody tr', function() {
     $('#mapid').height('70vh');
     $('#iconMap i').css('color','#85D945');
     $('#table').hide();
+    $("#lastEarthquakesButton-backlist").show();
+    $("#lastEarthquakesButton-back").hide();
     $("#greatestButton-backlist").show();
     $("#greatestButton-back").hide();
  });
@@ -260,6 +181,8 @@ $('.table-hover').on('click', 'tbody tr', function() {
     $('#map').hide();
     $('#iconMap i').css('color','#fafafa');
     $('#table').show();
+    $("#lastEarthquakesButton-backlist").hide();
+    $("#lastEarthquakesButton-back").show();
     $("#greatestButton-backlist").hide();
     $("#greatestButton-back").show();
      removemap();

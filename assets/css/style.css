@@ -84,25 +84,25 @@ section{
     }
 }
 
-#greatest h2{
+#greatest h2, #lastEarthquakes h2 {
     padding-right:50vw;
     padding-top:1.75vh;
     padding-bottom: 1.75vh;
 }
 @media screen and (max-width: 1000px) {
-    #greatest h2{
+    #greatest h2, #lastEarthquakes h2 {
         padding-right:30vw;
         padding-top:1.25vh;
         padding-bottom: 1.25vh;
     }
 }
 @media screen and (max-width: 700px) {
-    #greatest h2{
+    #greatest h2, #lastEarthquakes h2 {
         padding:0;
     }
 }
 @media screen and (max-width: 465px) {
-    #greatest h2{
+    #greatest h2, #lastEarthquakes h2 {
         padding:0;
     }
     .card-header button{
