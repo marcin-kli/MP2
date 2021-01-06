@@ -23,6 +23,10 @@ a{
     color: #fafafa;
 }
 
+h1{
+    text-align: center;
+    padding-top:0.5em;
+}
 h2, tbody{
     cursor: pointer;
 }
@@ -88,31 +92,7 @@ section{
     }
 }
 
-#greatest h2, #lastEarthquakes h2, #customData h2 {
-    padding-right:50vw;
-    padding-top:1.75vh;
-    padding-bottom: 1.75vh;
-}
-@media screen and (max-width: 1000px) {
-    #greatest h2, #lastEarthquakes h2, #customData h2 {
-        padding-right:30vw;
-        padding-top:1.25vh;
-        padding-bottom: 1.25vh;
-    }
-}
-@media screen and (max-width: 700px) {
-    #greatest h2, #lastEarthquakes h2, #customData h2 {
-        padding:0;
-    }
-}
-@media screen and (max-width: 465px) {
-    #greatest h2, #lastEarthquakes h2, #customData h2 {
-        padding:0;
-    }
-    .card-header button{
-        font-size:75%
-    }
-}
+/********* cards *********/
 
 .card{
     background-color: transparent;
@@ -143,7 +123,7 @@ section{
 }
 
 .card-body{
-    margin: -0.3em 0.5em 2.75em 0.5em;
+    margin: -0.3em 0.5em 2em 0.5em;
     padding: 0;
     background-color:#7090D0;
     opacity: 0.9;
@@ -152,7 +132,46 @@ section{
     border-right: 2px solid #ffffff;
 }
 
-/********* last earthquakes *********/
+@media screen and (max-width: 465px){
+    .card-body{
+        margin-bottom: 3em;
+    }
+}
+
+.card-body button{
+    margin-bottom: 1.5em;
+}
+
+#greatest h2, #lastEarthquakes h2, #customData h2 {
+    padding-right:45vw;
+    padding-top:1.75vh;
+    padding-bottom: 1.75vh;
+}
+
+@media screen and (max-width: 1000px) {
+    #greatest h2, #lastEarthquakes h2, #customData h2 {
+        padding-right:30vw;
+        padding-top:1.25vh;
+        padding-bottom: 1.25vh;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #greatest h2, #lastEarthquakes h2, #customData h2 {
+        padding:0;
+    }
+}
+@media screen and (max-width: 465px) {
+    #greatest h2, #lastEarthquakes h2, #customData h2 {
+        padding:0;
+    }
+    .card-header button{
+        font-size:75%
+    }
+}
+
+/********* custom form *********/
+
 #customdata form{
     margin-bottom:1em;
 }
@@ -172,7 +191,7 @@ section{
     width:50px;
 }
 
-/********* greatest earthquakes *********/
+/********* table *********/
 
 table{
     width: 100%;
@@ -193,6 +212,26 @@ table{
         font-size: 60%;
     }
 }
+
+/********* knowledge *********/
+
+.sliderTop, .sliderMiddle, .sliderBottom{
+    padding: 0.75em 0 0.25em 0;
+    background-color: #458216;
+    font-weight: 500;
+    text-align: center;
+}
+.sliderTop p, .sliderMiddle p, .sliderBottom p{
+    padding: 1.25em 1.75em 1.25em 1.75em;
+    background-color: #258216;
+    text-align: center;
+}
+.sliderTop img{
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
 /********* map *********/
 
 #mapid {

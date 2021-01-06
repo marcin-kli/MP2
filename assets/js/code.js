@@ -98,7 +98,7 @@ $('#customData').click(function(){
     $('section').css('margin-top','7vh');
     $('section').css('padding','0');
     $('section').css('margin-bottom','5.5vh');
-    $('#iconList i').css('color','#85D945');
+    $('#iconSettings i').css('color','#85D945');
     $('#map').hide();
     $('#lastEarthquakes-card').hide();
     $('#greatest-card').hide(); 
@@ -106,15 +106,27 @@ $('#customData').click(function(){
     $('#customButton-map').show();
     $('#customButton-back').show();
     $("#customData-card .card-body").show();
-    
 });
 
     //**************  K N O W L E D G E  B A S E  **************
 
 
-    $("#knowledge").click(function(){
+$("#knowledge .card-header").click(function(){
         $("#knowledge .card-body").toggle();
-    });
+});
+
+$(".sliderTop h2").nextAll().hide();
+$(".sliderTop h2").click(function(){
+        $(".sliderTop h2").nextAll().toggle();
+  });
+$(".sliderMiddle h2").nextAll().hide();
+$(".sliderMiddle h2").click(function(){
+        $(".sliderMiddle h2").nextAll().toggle();
+  });
+$(".sliderBottom h2").nextAll().hide();
+$(".sliderBottom h2").click(function(){
+        $(".sliderBottom h2").nextAll().toggle();
+  });
 
 //***** Go back to main page *****
 function backToMain(){
@@ -136,6 +148,7 @@ function backToMain(){
     $('#table').hide();
     $('#iconList i').css('color','#fafafa');
     $('#iconMap i').css('color','#fafafa');
+    $('#iconSettings i').css('color','#fafafa');
     $('section').css('margin-top','7vh');
     $('section').css('padding','19vh 0');
     $('section').css('margin-bottom','0');
