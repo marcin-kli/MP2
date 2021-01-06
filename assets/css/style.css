@@ -23,6 +23,10 @@ a{
     color: #fafafa;
 }
 
+h2, tbody{
+    cursor: pointer;
+}
+
 /********* all sections *********/
 
 .container-fixed{
