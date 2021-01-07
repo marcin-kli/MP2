@@ -43,7 +43,7 @@ $(document).ready(function () {
     //************  L A S T  E A R T H Q U A K E S  ************
 
 $('#lastEarthquakes').click(function(){
-    $('section').css('margin-top','7vh');
+    $('section').css('margin-top','9vh');
     $('section').css('padding','0');
     $('section').css('margin-bottom','5.5vh');
     $('#iconList i').css('color','#85D945');
@@ -61,7 +61,7 @@ $('#lastEarthquakes').click(function(){
     //********  G R E A T E S T  E A R T H Q U A K E S  ********
 
 $('#greatest').click(function(){
-    $('section').css('margin-top','7vh');
+    $('section').css('margin-top','9vh');
     $('section').css('padding','0');
     $('section').css('margin-bottom','5.5vh');
     $('#iconList i').css('color','#85D945');
@@ -82,7 +82,7 @@ $('#greatest').click(function(){
     //*****************  C U S T O M  D A T A  *****************
 
 $('#customData').click(function(){
-    $('section').css('margin-top','7vh');
+    $('section').css('margin-top','9vh');
     $('section').css('padding','0');
     $('section').css('margin-bottom','5.5vh');
     $('#iconSettings i').css('color','#85D945');
@@ -138,7 +138,7 @@ function backToMain(){
     $('#iconList i').css('color','#fafafa');
     $('#iconMap i').css('color','#fafafa');
     $('#iconSettings i').css('color','#fafafa');
-    $('section').css('margin-top','7vh');
+    $('section').css('margin-top','9vh');
     $('section').css('padding','19vh 0');
     $('section').css('margin-bottom','0');
     removemap();
@@ -179,7 +179,7 @@ function backToList(){
     $("#customButton-backlist").hide();
     $("#customButton-back").show();
     $("#customButton-map").show();
-    $('section').css('margin-top','7vh');
+    $('section').css('margin-top','9vh');
     $('section').css('padding','0');
     $('section').css('margin-bottom','5.5vh');
     removemap();

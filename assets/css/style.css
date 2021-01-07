@@ -79,7 +79,7 @@ h2, tbody{
 
 section{
     padding: 19vh 0;
-    margin-top: 7vh;
+    margin-top: 7.5vh;
     margin-bottom: 5.5vh;
     background-image: url("../images/pexels-pixabay-41953_00.jpg");
     background-repeat: no-repeat;
@@ -157,16 +157,28 @@ section{
 }
 
 @media screen and (max-width: 700px) {
-    #greatest h2, #lastEarthquakes h2, #customData h2 {
+    #greatest h2, #lastEarthquakes h2, #customData h2, #knowledge {
         padding:0;
     }
 }
 @media screen and (max-width: 465px) {
-    #greatest h2, #lastEarthquakes h2, #customData h2 {
+    #greatest h2, #lastEarthquakes h2, #customData h2, #knowledge {
         padding:0;
+        font-size:80%;
     }
     .card-header button{
-        font-size:75%
+        padding: .15rem .15rem;
+        font-size:65%
+    }
+}
+@media screen and (max-width: 359px) {
+        #greatest h2, #lastEarthquakes h2, #customData h2, #knowledge {
+        padding:0;
+        font-size:75%;
+    }
+    .card-header button{
+        padding: .125rem .125rem;
+        font-size:65%
     }
 }
 
