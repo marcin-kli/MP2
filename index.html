@@ -16,15 +16,15 @@
     <header class="container-fixed">
         <!-- navigation -->
         <nav class="navbar navbar-dark bg-dark nav-large fixed-top">
-        <a class="navbar-brand uppercase" href="index.html">Earthquakes</a>
+        <a class="navbar-brand uppercase" href="index.html"><span class="sr-only">(home)</span>Earthquakes</a>
             <ul class="navbar-nav flex-nav">
-                <li id="iconList">
+                <li id="iconList" data-toggle="tooltip" title="List view">
                     <i class="fa fa-list" aria-hidden="true"><span class="sr-only">(list)</span></i>      
                 </li>
-                <li id="iconMap"> 
+                <li id="iconMap"  data-toggle="tooltip" title="Map view">
                     <i class="fa fa-globe" aria-hidden="true"><span class="sr-only">(map)</span></i>
                 </li>
-                <li id="iconSettings">
+                <li id="iconSettings"  data-toggle="tooltip" title="Custom view">
                     <i class="fa fa-cog" aria-hidden="true"><span class="sr-only">(settings)</span></i>
                 </li>
             </ul>

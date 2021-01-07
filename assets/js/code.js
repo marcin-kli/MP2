@@ -162,6 +162,8 @@ function showMap(){
     $("#customButton-backlist").show();
     $("#customButton-back").hide();
     $("#customButton-map").hide();
+    $('#customData-card .card-body').hide();
+    
 }
 
     //***** Go back to list from show all points on the map  *****
@@ -182,17 +184,14 @@ function backToList(){
     $('section').css('margin-top','9vh');
     $('section').css('padding','0');
     $('section').css('margin-bottom','5.5vh');
+    $('#customData-card .card-body').show();
     removemap();
+        
  }
 
     //***** Show single point on map *****
 $('.table-hover').on('click', 'tbody tr', function() {
-    var Longitude = this.lastElementChild.previousSibling.innerHTML;
-    var Latitude = this.lastElementChild.innerHTML;
-    var parent = this.parent;
     var ooo = this.childNodes;
-    
-    alert('Display this earthquake in:\n' + (ooo[1].innerHTML) + '\non the map');
     getpoint(ooo);
     $('#map').show();
     $('#map .card-header').show();
@@ -281,6 +280,10 @@ function search(){
     $('#table').show();
     $('#loadingData').html("<h1>LOADING</h1>");
     printintable(magnitude, otherDay, currentDay);
+    if ($('#iconSettings i').css('color')=='rgb(133, 217, 69)'){
+        ($('#iconList i').css('color','#85D945'))
+    };
+
 }
 
     //set "Custom" radio input to checked state in custom search for magnitude
