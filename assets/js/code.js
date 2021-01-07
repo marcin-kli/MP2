@@ -29,26 +29,13 @@ $(document).ready(function () {
 
     //create current day in format: yyyy-mm-dd
     //create current day in format: yyyy-mm-dd (to include current day I need to add one day)
+    //getTime() change to milliseconds
     currentDay = (new Date(currentDay.getTime()+oneday)).toISOString().substring(0, 10);
     otherDay= (new Date(otherDay.getTime()-oneday*10)).toISOString().substring(0, 10);
     //set datefrom and dateuntil in custom setting
     document.getElementById("datefrom").defaultValue = otherDay;
     document.getElementById("dateuntil").defaultValue = currentDay; 
 });
-
-
-//***********************  N A V I G A T I O N  *********************
-
-    //***********************  LIST ICON  **********************
-
-
-    //***********************  MAP ICON  ***********************
-
-
-    //***********************  SETTINGS ICON  ******************
-
-    
-    //***********************  HELP ICON  **********************
 
 
 //***********************   M A I N  P A G E   **********************
@@ -67,7 +54,7 @@ $('#lastEarthquakes').click(function(){
     $('#lastEarthquakesButton-map').show();
     $('#lastEarthquakesButton-back').show();
     $('#table').show();
-    //set default data from search and print as last earthquakes into table
+    //set default data from search and print as last earthquakes into the table
     search();
 });
 
@@ -128,7 +115,9 @@ $(".sliderBottom h2").click(function(){
         $(".sliderBottom h2").nextAll().toggle();
   });
 
-//***** Go back to main page *****
+    //********************  B U T T O N S  *********************
+
+    //***** Go back to main page *****
 function backToMain(){
     $('#lastEarthquakes-card').show();
     $("#lastEarthquakesButton-map").hide();
@@ -155,7 +144,7 @@ function backToMain(){
     removemap();
  }
 
-//***** Show all points on the map *****
+    //***** Show all points on the map *****
 function showMap(){
     getmap();
     $('#table').hide();
@@ -175,7 +164,7 @@ function showMap(){
     $("#customButton-map").hide();
 }
 
-//***** Go back to list from show all points on the map  *****
+    //***** Go back to list from show all points on the map  *****
 function backToList(){
     $('#table').show();
     $('#iconMap i').css('color','#fafafa');
@@ -196,8 +185,7 @@ function backToList(){
     removemap();
  }
 
-//***** Show single point on map *****
-
+    //***** Show single point on map *****
 $('.table-hover').on('click', 'tbody tr', function() {
     var Longitude = this.lastElementChild.previousSibling.innerHTML;
     var Latitude = this.lastElementChild.innerHTML;
@@ -219,7 +207,7 @@ $('.table-hover').on('click', 'tbody tr', function() {
     $("#customButton-back").hide();
  });
 
-//***** Go back from single point map to list view *****
+    //***** Go back from single point map to list view *****
  $('#mapButton-back').click(function(){
     $('#map').hide();
     $('#iconMap i').css('color','#fafafa');
@@ -233,12 +221,11 @@ $('.table-hover').on('click', 'tbody tr', function() {
      removemap();
  });
 
-
+    //******************  F U N C T I O N S  *******************
 
     //open USGS API//
 function openUSGSAPI(magnitude, otherDay, currentDay, callback){
     var xhr = new XMLHttpRequest();
-    // var url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=1727-11-10&endtime=2020-12-31&minmagnitude=";
     var url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=";
     xhr.open("GET",`${url + otherDay}&endtime=${currentDay}&minmagnitude=${magnitude}`);
     xhr.send();
@@ -250,28 +237,22 @@ function openUSGSAPI(magnitude, otherDay, currentDay, callback){
     };
 }
 
- //display data from USGS API to the table
+    //display data from USGS API to the table
 function printintable(magnitude, otherDay, currentDay){
-$('#datadisplay-table').html("");
-openUSGSAPI(magnitude, otherDay, currentDay, function(data){
-    console.log(data);
+    $('#datadisplay-table').html("");
+    openUSGSAPI(magnitude, otherDay, currentDay, function(data){
         data=data.features;
-        $('#datadisplay-table-head').html("<tr><th rowspan='2'>Date</th> <th rowspan='2'>Place</th><th rowspan='2'>Magnitude</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr>");
-        
+        $('#datadisplay-table-head').html("<tr><th rowspan='2'>Date</th> <th rowspan='2'>Place</th><th rowspan='2'>Magnitude</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr>");    
         data.forEach(function(item) {
-            document.getElementById('datadisplay-table').innerHTML += "<tr><td>" +(new Date(item.properties.time)).toLocaleDateString()+"</td>"+"<td>"+item.properties.place +"</td>"+"<td>"+ item.properties.mag +"</td>"+"<td>"+ item.geometry.coordinates[0] +"</td>"+"<td>"+ item.geometry.coordinates[1] +"</td></tr>"
-            
+            document.getElementById('datadisplay-table').innerHTML += "<tr><td>" +(new Date(item.properties.time)).toLocaleDateString()+"</td>"+"<td>"+item.properties.place +"</td>"+"<td>"+ item.properties.mag +"</td>"+"<td>"+ item.geometry.coordinates[0] +"</td>"+"<td>"+ item.geometry.coordinates[1] +"</td></tr>"    
         });
-    console.log(data.length);
     $('#loadingData').html("");
     });
 }
 
-
-
-    // select custom magnitude in custom search
+    // select custom magnitude and time in custom search
 function search(){
-    
+
     //set magnitude
     $('#magnitudeCustom').val(0);
     magnitude = $('input[name="magnitude"]:checked').val();
@@ -280,10 +261,8 @@ function search(){
     } else {
         magnitude = $("#customRangeInput").val();
     }
-    console.log(magnitude);
 
     //set time
-    //getTime() change to milliseconds
     otherDay = new Date().getTime();
     if (document.formcustomdata.time[0].checked==true){
         otherDay= otherDay-oneday;
@@ -293,15 +272,12 @@ function search(){
     }
     else if (document.formcustomdata.time[2].checked==true){
         otherDay= otherDay-oneday*30;
-        //hide magnitude 2.5 here -> disableMagnitude
     }
     else if (document.formcustomdata.time[3].checked==true){
         otherDay= $("#datefrom").val();
         currentDay= $("#dateuntil").val();
     }
     otherDay= (new Date(otherDay)).toISOString().substring(0, 10);
-    console.log("C " +currentDay);
-    console.log("O " + otherDay);
     $('#table').show();
     $('#loadingData').html("<h1>LOADING</h1>");
     printintable(magnitude, otherDay, currentDay);
@@ -309,12 +285,11 @@ function search(){
 
     //set "Custom" radio input to checked state in custom search for magnitude
 function setCustomMagnitude(){
-
      document.formcustomdata.magnitude[3].checked=true;
 }
+
      //set "Custom" radio input to checked state in custom search for time
 function setCustomTime(){
-
      document.formcustomdata.time[3].checked=true;
 }
 
@@ -420,7 +395,7 @@ function customTime(){
     }
 }
 
-// display value from input slider; idea source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_rangeslider
+// display value from input slider; source idea: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_rangeslider
 function showMagnitudeValue(){
     $("#showMagnitudeValueText").show();
     var slider = document.getElementById("customRangeInput");
