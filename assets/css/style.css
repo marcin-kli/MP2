@@ -10,7 +10,6 @@ body{
   font-family: 'Hind', serif;
   font-size: 18px;
   font-weight: 400;
-  /* line-height: 1.5em; */
   color: #fafafa;
   background-color: #262626;
 }
@@ -155,12 +154,12 @@ section{
 }
 
 #greatest h2, #lastEarthquakes h2, #customData h2 {
-    padding-right:45vw;
+    padding-right:55vw;
     padding-top:1.75vh;
     padding-bottom: 1.75vh;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
     #greatest h2, #lastEarthquakes h2, #customData h2 {
         padding-right:30vw;
         padding-top:1.25vh;
@@ -169,12 +168,12 @@ section{
 }
 
 @media screen and (max-width: 700px) {
-    #greatest h2, #lastEarthquakes h2, #customData h2, #knowledge {
+    #greatest h2, #lastEarthquakes h2, #customData h2, #knowledge, #map h2  {
         padding:0;
     }
 }
 @media screen and (max-width: 465px) {
-    #greatest h2, #lastEarthquakes h2, #customData h2, #knowledge {
+    #greatest h2, #lastEarthquakes h2, #customData h2, #knowledge, #map h2 {
         padding:0;
         font-size:80%;
     }
@@ -184,7 +183,7 @@ section{
     }
 }
 @media screen and (max-width: 359px) {
-        #greatest h2, #lastEarthquakes h2, #customData h2, #knowledge {
+        #greatest h2, #lastEarthquakes h2, #customData h2, #knowledge, #map h2  {
         padding:0;
         font-size:70%;
     }
@@ -227,6 +226,10 @@ section{
 table{
     width: 100%;
     vertical-align: middle;
+}
+#table{
+    margin-left: 1em;
+    margin-right:1em; 
 }
 .table{
     margin-bottom: 0;
