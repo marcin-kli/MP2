@@ -119,39 +119,71 @@ This project consist of one html page. It is divided into main 3 sections:
 Details as below:
 
 ## Navigation bar
-
+---
 Navigation bar is located on the top of the website. It is responsive and will adapt to mobile devices.
-The purpos of this bar is to have a link to main page on the left hend site and information icons on the right hand site.
+The purpose of this bar is to have a link for a user to go to the main page on the left hand side and information icons on the right hand site.
 ### Navigation scheme:
 
 ![Navigation](md_data/features/navigation.png)
 
-On selected pages this icons will highlite the feature by color change to <span style="color:#85D945">green</span>.
-
-
-Name | Default color | <span style="color:#85D945">Highlited feature</span>
------------- | ------------- | -------------
-  List view | <i class="fa fa-list" aria-hidden="true"></i> | <span style="color:#85D945"><i class="fa fa-list" aria-hidden="true"></i></span>
-  Map view | <i class="fa fa-globe" aria-hidden="true"></i> | <span style="color:#85D945"><i class="fa fa-globe" aria-hidden="true"></i></span>
-  Custom settings | <i class="fa fa-cog" aria-hidden="true"></i> | <span style="color:#85D945"><i class="fa fa-cog" aria-hidden="true"></i></span>
-
-Example of custom view with a list feature highlited:
+On selected page this icons will highlight the feature by color change to green.
+ 
+Here is an example for a custom view with a list feature highlighted:
 
 ![Navigation example](md_data/features/navigation_example.png)
 
 ## Footer
+---
 
 Footer has contact button and social links. Each social icon will open in a separate tab in a browser.
 
 ![Footer](md_data/features/footer.png)
 
-Contact button will open a modal with a contact form.
+Contact button will open a modal with a contact form. Here is an example of contact form open with details filled.
 
 ![Footer](md_data/features/contact_form.png)
 
+Contact form is linked to email.js API.
+
+## Main page
+---
+
+There are four sections to choose on main page.
+
+![main page](md_data/features/main_page.png)
+
+1. ### The latest earthquakes
+    This section provides data for the latest earthquakes from last 24 hours.
+    Search function connects to USGS API and take relevant data from there.
+    List icon is highlighted on this screen.
+    
+    ![latest earthquakes](md_data/features/latest_earthquakes.png)
+
+    From here there are options for:
+    1. Back button, to go back to main page.
+    2. Show on map button, to see results on the map.
+    3. Search through results, choose interesting event and display it on the map.
+    On screenshot above selected row is highlighted and text is displayed in a tooltip.
+
+    #### Show on map.
+    All points from list view are on the interactive map now. Bind tooltip is highlighted for chosen event. User can search a map, increase or decrease zoom and see details for events. 
+
+    ![latest earthquakes map](md_data/features/latest_earthquakes_map_view.png)
+
+    #### Search through results
+    From list view I choose a single result. Now I can see this event only.
+
+    ![latest earthquakes map](md_data/features/latest_earthquakes_map_view_single_point.png)
+
+2. ### 20 Greatest earthquakes
+
+    In this section I had to set fix data in a function.
+    After setting magnitude to 8.4 and date to 1727-11-10 i got a list for a 20 greatest earthquakes.
+    The list is limited to 20 positions. Map view options for a map view are the same as for the latest earthquakes.
 
 
-
+3. ### Custom search
+4. ### Knowledge base
 
 [Back to Table of contents](#table-of-contents)
 ___
