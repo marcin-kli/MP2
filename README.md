@@ -2,7 +2,7 @@
 
 ## Interactive Front-End Development Milestone Project.
 
-![Mockup](assets/images/mockup.png)
+![Mockup](md_data/mockup.png)
 
 Earthquake website presents information about earthquakes events.
 Users will be able to see earthquakes events as a table list and a map view.
@@ -110,6 +110,48 @@ I used images from:
 [Back to Table of contents](#table-of-contents)
 ___
 # Features
+
+This project consist of one html page. It is divided into main 3 sections:
+- navigation bar
+- main page divided into four sections
+- footer with contact button.
+
+Details as below:
+
+## Navigation bar
+
+Navigation bar is located on the top of the website. It is responsive and will adapt to mobile devices.
+The purpos of this bar is to have a link to main page on the left hend site and information icons on the right hand site.
+### Navigation scheme:
+
+![Navigation](md_data/features/navigation.png)
+
+On selected pages this icons will highlite the feature by color change to <span style="color:#85D945">green</span>.
+
+
+Name | Default color | <span style="color:#85D945">Highlited feature</span>
+------------ | ------------- | -------------
+  List view | <i class="fa fa-list" aria-hidden="true"></i> | <span style="color:#85D945"><i class="fa fa-list" aria-hidden="true"></i></span>
+  Map view | <i class="fa fa-globe" aria-hidden="true"></i> | <span style="color:#85D945"><i class="fa fa-globe" aria-hidden="true"></i></span>
+  Custom settings | <i class="fa fa-cog" aria-hidden="true"></i> | <span style="color:#85D945"><i class="fa fa-cog" aria-hidden="true"></i></span>
+
+Example of custom view with a list feature highlited:
+
+![Navigation example](md_data/features/navigation_example.png)
+
+## Footer
+
+Footer has contact button and social links. Each social icon will open in a separate tab in a browser.
+
+![Footer](md_data/features/footer.png)
+
+Contact button will open a modal with a contact form.
+
+![Footer](md_data/features/contact_form.png)
+
+
+
+
 
 [Back to Table of contents](#table-of-contents)
 ___
