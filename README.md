@@ -1,7 +1,18 @@
-# Earthquakes application.
+# Earthquake web-based application.
 
 ## Interactive Front-End Development Milestone Project.
 
+![Mockup](assets/images/mockup.png)
+
+Earthquake website presents information about earthquakes events.
+Users will be able to see earthquakes events as a table list and a map view.
+Some general information will be provided in a knowledge base section.
+
+This project is for educational purposes only. It is built using HTML, CSS and Javascript programing languages.
+For functionality I used external frameworks and APIs.
+
+## [View life website in github pages](https://marcin-kli.github.io/MP2/)
+---
 # Table of contents
 
 - [UX](#ux)
@@ -23,13 +34,13 @@
 ## Strategy
 
 Tha main aim of this project is to create a simple website which shows information about earthquakes and interacts as a mobile app.
-The site is divided into three parts. Major earthquakes in the last 30 days, major earthquakes in history, and basic explanation what causes the earthquakes.
+The site is divided into four parts. Major earthquakes in the last 30 days, major earthquakes in history, custom search and basic explanation what causes the earthquakes.
 Site owner goal: provide interactive solution to search, display data and information about earthquakes.
 User goal: find relevant data and some basic knowledge about earthquakes.
 
 ## Scope
 
-As a MVP (minimum viable product) I divide landing page into 3 sections which show below features:
+As a MVP (minimum viable product) I divide landing page into 4 sections which show below features:
 - list of the earthquakes in chosen period of time
 - list of the 20 the biggest earthquakes in the past
 - educational information
@@ -56,7 +67,7 @@ As a returning user:
 ## Structure of the website
 
 All of the content is displayed on one page site with menu list on the top. 
-In the middle of the site, on the landing page, there are three sections to choose by the user.
+In the middle of the site, on the landing page, there are four sections to choose by the user.
 After selecting an option for the last/custom events user can select or deselect additional map option from top menu on mobile device.
 On desktop the features are enabled by default. Changes can be also made from this menu.
 At the bottom there is a footer with contact information and social links.
@@ -72,10 +83,17 @@ At the bottom there is a footer with contact information and social links.
 ### Colors
 
 Colours used in a project:
-* background color: #262626
-* font color: 
-* link color: 
-* hoover color: 
+Purpose | Colour value
+------------ | -------------
+background | # 262626
+font | # fafafa
+link |# fafafa
+hoover | # 6c757d
+top icon | # 85D945
+section header | # 233CCC
+table color: | # 7090D0
+knowledge base header | # 458216
+knowledge base card | # 458216
 
 ### Fonts
 
@@ -83,7 +101,11 @@ Colours used in a project:
 
 ### Images
 
-* I used images from [pexels.com](www.pexels.com) and there are credited in [credits](#credits) section.
+I used images from:
+
+*  [pexels.com](www.pexels.com) and it is credited in [credits](#credits) section.
+
+*  [kids-fun-science.com](www.kids-fun-science.com) and it is credited in [credits](#credits) section.
 
 
 [Back to Table of contents](#table-of-contents)
@@ -116,9 +138,9 @@ ___
 
 ### Images:
 
-#### Pexels.com:
 * [pexels-pixabay-41953_s.jpg](https://www.pexels.com/photo/earth-space-universe-globe-41953/)
 
+* [pt15-what-is-an-earthquake.jpeg](https://www.kids-fun-science.com/images/pt15-what-is-an-earthquake.jpg)
 
 [Back to Table of contents](#table-of-contents)
 ___
