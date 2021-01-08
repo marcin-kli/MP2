@@ -2,6 +2,7 @@
     var currentDay = new Date();
     var otherDay=new Date();
     var magnitude;
+    var data;
     //One day (24 hours) = 86 400 000 milliseconds
     const oneday = 86400000;
 
@@ -230,7 +231,7 @@ function openUSGSAPI(magnitude, otherDay, currentDay, callback){
     xhr.send();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            var data = JSON.parse(this.responseText);
+            data = JSON.parse(this.responseText);
             callback(data);
         }
     };
