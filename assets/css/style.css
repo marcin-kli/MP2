@@ -34,6 +34,11 @@ h2, tbody{
     cursor: pointer;
 }
 
+/***** remove overload from bootstrap .row *****/
+.row{
+    margin: 0;
+}
+
 /********* all sections *********/
 
 .container-fixed{
@@ -104,7 +109,7 @@ section{
 
 .card-header{
     height: 3.75em;
-    margin: 0.25em 0 0.25em;
+    margin-top: 0.5em ;
     padding: 0.75em 0.75em;
     background-color:#233CCC;
     opacity: 0.8;
@@ -126,8 +131,8 @@ section{
 }
 
 .card-body{
-    margin: -0.3em 0.5em 2em 0.5em;
-    padding: 0;
+    margin: 0em 0.5em 2em 0.5em;
+    padding: 0em;
     background-color:#7090D0;
     opacity: 0.9;
     border-bottom: 2px solid #ffffff;
@@ -135,14 +140,18 @@ section{
     border-right: 2px solid #ffffff;
 }
 
-@media screen and (max-width: 465px){
-    .card-body{
-        margin-bottom: 3em;
-    }
-}
-
 .card-body button{
     margin-bottom: 1.5em;
+}
+
+@media screen and (max-width: 465px){
+    .card-body{
+        margin-bottom: 0.25em;
+        font-size: 75%;
+    }
+    .card-body button{
+        margin-bottom: 0.25em;
+    }
 }
 
 #greatest h2, #lastEarthquakes h2, #customData h2 {
@@ -177,7 +186,7 @@ section{
 @media screen and (max-width: 359px) {
         #greatest h2, #lastEarthquakes h2, #customData h2, #knowledge {
         padding:0;
-        font-size:75%;
+        font-size:70%;
     }
     .card-header button{
         padding: .125rem .125rem;
@@ -196,7 +205,7 @@ section{
 }
 
 #fieldset1 legend, #fieldset2 legend{
-    padding-top: 1em;
+    padding-top: 0.25em;
 
 }
 #fieldset1 div{
@@ -220,7 +229,7 @@ table{
     vertical-align: middle;
 }
 .table{
-    margin-bottom: 0rem;
+    margin-bottom: 0;
 }
 .table thead th, .table td{
     vertical-align: middle;
