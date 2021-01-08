@@ -29,14 +29,17 @@ h1{
     text-align: center;
     padding-top:0.5em;
 }
+
 h2, tbody{
     cursor: pointer;
 }
+
 
 /***** remove overload from bootstrap .row *****/
 .row{
     margin: 0;
 }
+
 
 /********* all sections *********/
 
@@ -53,6 +56,7 @@ h2, tbody{
 .capitalize{
     text-transform: capitalize;
 }
+
 
 /********* navigation *********/
 
@@ -82,6 +86,7 @@ h2, tbody{
    }
 }
 
+
 /********* section *********/
 
 section{
@@ -98,6 +103,7 @@ section{
         background-size: 100%;
     }
 }
+
 
 /********* cards *********/
 
@@ -158,6 +164,7 @@ section{
     padding-top:1.75vh;
     padding-bottom: 1.75vh;
 }
+
 @supports (-moz-appearance:none) {
   #greatest h2, #lastEarthquakes h2, #customData h2 {
     padding-right:1.75vh
@@ -177,6 +184,7 @@ section{
         padding:0;
     }
 }
+
 @media screen and (max-width: 465px) {
     #greatest h2, #lastEarthquakes h2, #customData h2, #knowledge, #map h2 {
         padding:0;
@@ -187,6 +195,7 @@ section{
         font-size:65%
     }
 }
+
 @media screen and (max-width: 359px) {
         #greatest h2, #lastEarthquakes h2, #customData h2, #knowledge, #map h2  {
         padding:0;
@@ -198,7 +207,8 @@ section{
     }
 }
 
-/********* custom form *********/
+
+/********* custom data *********/
 
 #customdata form{
     margin-bottom:1em;
@@ -212,9 +222,11 @@ section{
     padding-top: 0.25em;
 
 }
+
 #fieldset1 div{
     padding-left: 0.5em;
 }
+
 #customTime label{
     width:50px;
 }
@@ -232,13 +244,16 @@ table{
     width: 100%;
     vertical-align: middle;
 }
+
 #table{
     margin-left: 1em;
     margin-right:1em; 
 }
+
 .table{
     margin-bottom: 0;
 }
+
 .table thead th, .table td{
     vertical-align: middle;
     width: 20%;
@@ -252,6 +267,7 @@ table{
     }
 }
 
+
 /********* knowledge *********/
 
 .sliderTop, .sliderMiddle, .sliderBottom{
@@ -260,22 +276,26 @@ table{
     font-weight: 500;
     text-align: center;
 }
+
 .sliderTop p, .sliderMiddle p, .sliderBottom p{
     padding: 1.25em 1.75em 1.25em 1.75em;
     background-color: #258216;
     text-align: center;
 }
+
 .sliderTop img{
     width: 100%;
     max-width: 600px;
     height: auto;
 }
 
+
 /********* map *********/
 
 #mapid {
     height: 650px;
 }
+
 
 /********* footer *********/
 
@@ -296,21 +316,24 @@ footer li{
     padding-right:0.5em;
     letter-spacing: 0.5em;
 }
+
 footer li button{
      margin-bottom: 2px;
      color: #fafafa !important;
      border-color:  #fafafa !important;
-     
 }
+
 footer li a i{
     margin-top: 5px;
 }
+
 
 /********* modal *********/
 
 .modal-dialog{
     color:#262626;
 }
+
 .modal-header{
     display: block;
 }
