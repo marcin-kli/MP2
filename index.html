@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+        <script type="text/javascript">
+        (function() {
+        emailjs.init("user_cEX0apuParamZKIfgcjaj");
+        })();
+        </script>
     <title>Earthquakes</title>
 </head>
 <body>
@@ -216,23 +222,23 @@
                     <h4 class="modal-title">Contact me</h4>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form onsubmit="return sendMail(this);" id="contactForm">
                         <div class="form-row">
                             <div class="col">
                                 <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
                                 </div>
                                 <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                                    <label for="emailaddress">Email</label>
+                                    <input type="emailaddress" class="form-control" name="emailaddress" id="emailaddress" placeholder="Email" required>
                                 </div>
                                 <div class="form-group">
-                                <label for="comments">Message</label>
-                                <textarea class="form-control" id="comments" name="comments" rows="3" required></textarea>
+                                    <label for="comments">Message</label>
+                                    <textarea class="form-control" id="comments" name="comments" rows="3" placeholder="Email" required></textarea>
                                 </div>
                                 <div class="form-group text-center">
-                                <button type="submit" class="btn btn-secondary">Send a message<i class="fas fa-paper-plane"></i></button>
+                                    <button type="submit" class="btn btn-secondary">Send a message<i class="fas fa-paper-plane"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -248,5 +254,6 @@
     <script type="text/javascript" src="assets/js/code.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <script type="text/javascript" src="assets/js/map.js"></script>
+    <script type="text/javascript" src="assets/js/email.js"></script>
 </body>
 </html>
