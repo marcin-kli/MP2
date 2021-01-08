@@ -35,7 +35,7 @@ For functionality I used external frameworks and APIs.
 
 Tha main aim of this project is to create a simple website which shows information about earthquakes and interacts as a mobile app.
 The site is divided into four parts. Major earthquakes in the last 30 days, major earthquakes in history, custom search and basic explanation what causes the earthquakes.
-Site owner goal: provide interactive solution to search, display data and information about earthquakes.
+Site owner goal: provide interactive solution to search and display data and information about earthquakes.
 User goal: find relevant data and some basic knowledge about earthquakes.
 
 ## Scope
@@ -54,7 +54,7 @@ As a site owner:
 - I would like to let users to search through earthquake events and show data as a list or on the map.
 
 As a first time user:
-- I would like to find in an easy way what I can do on the website.
+- I would like to find out in an easy way what I can do on the website.
 - I would like to check earthquake events without any scientific knowledge needed.
 
 As a returning user:
@@ -135,11 +135,11 @@ Here is an example for a custom view with a list feature highlighted:
 ## Footer
 ---
 
-Footer has contact button and social links. Each social icon will open in a separate tab in a browser.
+Footer has a contact button and social links. Each social icon will open in a separate tab in a browser.
 
 ![Footer](md_data/features/footer.png)
 
-Contact button will open a modal with a contact form. Here is an example of contact form open with details filled.
+Contact button will open a modal with a contact form. Here is an example of contact form opened with details filled.
 
 ![Footer](md_data/features/contact_form.png)
 
@@ -148,11 +148,11 @@ Contact form is linked to email.js API.
 ## Main page
 ---
 
-There are four sections to choose on main page.
+There are four sections to choose on the main page.
 
 ![main page](md_data/features/main_page.png)
 
-1. ### The latest earthquakes
+* ### The latest earthquakes
     This section provides data for the latest earthquakes from last 24 hours.
     Search function connects to USGS API and take relevant data from there.
     List icon is highlighted on this screen.
@@ -166,7 +166,8 @@ There are four sections to choose on main page.
     On screenshot above selected row is highlighted and text is displayed in a tooltip.
 
     #### Show on map.
-    All points from list view are on the interactive map now. Bind tooltip is highlighted for chosen event. User can search a map, increase or decrease zoom and see details for events. 
+    
+    All points from list view are on the interactive map now. Bind tooltip is highlighted for chosen event. User can search the map, increase or decrease zoom and see details for events. 
 
     ![latest earthquakes map](md_data/features/latest_earthquakes_map_view.png)
 
@@ -175,16 +176,54 @@ There are four sections to choose on main page.
 
     ![latest earthquakes map](md_data/features/latest_earthquakes_map_view_single_point.png)
 
-2. ### 20 Greatest earthquakes
+* ### 20 Greatest earthquakes
 
     In this section I had to set fix data in a function.
-    After setting magnitude to 8.4 and date to 1727-11-10 i got a list for a 20 greatest earthquakes.
-    The list is limited to 20 positions. Map view options for a map view are the same as for the latest earthquakes.
+    After setting magnitude to 8.4 and date to 1727-11-10 I got a list limited to 20 positions. Map view options are the same like in the latest earthquakes section.
 
+* ### Custom search
 
-3. ### Custom search
-4. ### Knowledge base
+    In this section user has nearly endless possibilities to choose. Options are:
 
+    Time period:
+    * Last day
+    * Last 7 days
+    * Last 30 days
+    * Custom - which is a selected date range
+
+    Magnitude:
+    * 2.5
+    * 4.5
+    * 6.5
+    * Custom - a range from 2.5 to 9.5
+
+    As an example I choose custom search for a days from 31/12/2020 to 09/01/2021 and custom magnitude 3.5.
+
+    ![custom search](md_data/features/custom_search.png)
+
+    As a result I can see Loading message for a short period of time.
+    Waiting time always depends on the data size. I set a limit to do not go over acceptable time which can be around 15 seconds.
+    This always vary and I recommend to start from fixed options first.
+
+    ![custom search loading](md_data/features/custom_search_loading.png)
+
+    Results for a data from custom search above.
+
+    ![custom search results](md_data/features/custom_search_results.png)
+
+* ### Knowledge base
+
+    This section is to provide basic knowledge about earthquakes.
+    Inside are there questions and user can get an answers for them by clicking a question. 
+
+     ![knowledge](md_data/features/knowledge.png)
+
+## Possible future implementations:
+
+* ### sort search results in a table by headings
+* ### change loading message for a progress bar
+* ### create an option to build a knowledge base by a user
+___
 [Back to Table of contents](#table-of-contents)
 ___
 # Technologies used
