@@ -230,7 +230,7 @@ function openUSGSAPI(magnitude, otherDay, currentDay, callback){
     xhr.send();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            data = JSON.parse(this.responseText);
+            var data = JSON.parse(this.responseText);
             callback(data);
         }
     };
@@ -243,7 +243,7 @@ function printintable(magnitude, otherDay, currentDay){
         data=data.features;
         $('#datadisplay-table-head').html("<tr><th rowspan='2'>Date</th> <th rowspan='2'>Place</th><th rowspan='2'>Magnitude</th><th colspan='2'>Coordinates</th></tr><tr><th>Longitude</th><th>Latitude</th></tr>");    
         data.forEach(function(item) {
-            document.getElementById('datadisplay-table').innerHTML += "<tr><td>" +(new Date(item.properties.time)).toLocaleDateString()+"</td>"+"<td>"+item.properties.place +"</td>"+"<td>"+ item.properties.mag +"</td>"+"<td>"+ item.geometry.coordinates[0] +"</td>"+"<td>"+ item.geometry.coordinates[1] +"</td></tr>"    
+            document.getElementById('datadisplay-table').innerHTML += "<tr><td>" +(new Date(item.properties.time)).toLocaleDateString()+"</td>"+"<td>"+item.properties.place +"</td>"+"<td>"+ item.properties.mag +"</td>"+"<td>"+ item.geometry.coordinates[0] +"</td>"+"<td>"+ item.geometry.coordinates[1] +"</td></tr>";
         });
     $('#loadingData').html("");
     });
@@ -281,8 +281,8 @@ function search(){
     $('#loadingData').html("<h1>LOADING</h1>");
     printintable(magnitude, otherDay, currentDay);
     if ($('#iconSettings i').css('color')=='rgb(133, 217, 69)'){
-        ($('#iconList i').css('color','#85D945'))
-    };
+        ($('#iconList i').css('color','#85D945'));
+    }
 
 }
 

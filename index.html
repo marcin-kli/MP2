@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
     <link rel="stylesheet" href="assets/css/style.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-        <script type="text/javascript">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+        <script>
         (function() {
         emailjs.init("user_cEX0apuParamZKIfgcjaj");
         })();
@@ -135,7 +135,7 @@
                                     <span id="showMagnitudeValueText"></span>
                                 </div>
                                 <div id="customRange">
-                                    <label for="customRange">Choose range</label>
+                                    <label for="customRangeInput">Choose range</label>
                                     <input type="range" name="magnituderange" min="2.5" max="9.5" step="0.5" value="7.5"
                                     id="customRangeInput" onclick="setCustomMagnitude(), showMagnitudeValue()">
                                 </div>
@@ -231,7 +231,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="emailaddress">Email</label>
-                                    <input type="emailaddress" class="form-control" name="emailaddress" id="emailaddress" placeholder="Email" required>
+                                    <input type="email" class="form-control" name="emailaddress" id="emailaddress" placeholder="Email" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="comments">Message</label>
@@ -251,9 +251,9 @@
     <!-- scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/js/code.js"></script>
+    <script src="assets/js/code.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <script type="text/javascript" src="assets/js/map.js"></script>
-    <script type="text/javascript" src="assets/js/email.js"></script>
+    <script src="assets/js/map.js"></script>
+    <script src="assets/js/email.js"></script>
 </body>
 </html>
