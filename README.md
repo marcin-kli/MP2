@@ -103,10 +103,9 @@ knowledge base card | # 458216
 
 I used images from:
 
-*  [pexels.com](www.pexels.com) and it is credited in [credits](#credits) section.
+*  [pexels.com](https://www.pexels.com) and it is credited in [credits](#credits) section.
 
-*  [kids-fun-science.com](www.kids-fun-science.com) and it is credited in [credits](#credits) section.
-
+*  [kids-fun-science.com](https://www.kids-fun-science.com) and it is credited in [credits](#credits) section.
 
 [Back to Table of contents](#table-of-contents)
 ___

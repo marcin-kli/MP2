@@ -158,6 +158,11 @@ section{
     padding-top:1.75vh;
     padding-bottom: 1.75vh;
 }
+@supports (-moz-appearance:none) {
+  #greatest h2, #lastEarthquakes h2, #customData h2 {
+    padding-right:1.75vh
+  }
+}
 
 @media screen and (max-width: 1024px) {
     #greatest h2, #lastEarthquakes h2, #customData h2 {
