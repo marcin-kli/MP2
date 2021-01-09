@@ -7,11 +7,9 @@ function sendMail(contactForm) {
     })
     .then(
         function (response) {
-            "SUCCESS", response;
             alert("Email sent successfully! " + response.text);
         },
         function (error) {
-            "FAILED", error;
             alert("FAILED! " + error.text);
         }
     );

@@ -6,8 +6,6 @@
 - [Performance testing](#performance-testing)
 - [Code Validation](#code-validation)
 
-
-
 ## Functionality testing
 
 I used Mozilla web developer tools and Chrome developer tools throughout the project for testing and solving problems with responsiveness and style issues.
@@ -21,7 +19,8 @@ Starting from the top of the page, I check:
 * Main page sections - all sections open to subsections as expected.
 * Footer - Contact me button works and opens a modal, social sites open into a new browser tab.
 
-### Modal form and Email.js testing:
+### Modal form and Email.js testing
+
 * Closing a modal by pressing an `x` button on the top right corner works as expected.
 * All input boxes works, validation works as expected.
 * Send a message button works as expected. Results:
@@ -31,6 +30,7 @@ Starting from the top of the page, I check:
 ![Email confirmation](md_data/tests/email_confirmation.png)
 
 ### The latest earthquakes and 20 greatest earthquake options
+
 Section opens as expected. `Show on map` and `back` buttons work.
 
 On a map search everything works as expected. On mouse over selected point is highlighted and tooltip displayed.
@@ -95,16 +95,148 @@ I tested on hardware devices such as: Lenovo ideapad with Ubuntu and Windows OS'
 No issues found.
 
 [Back to Table of contents](#table-of-contents)
-
 ___
 ## User stories testing
+
+### As a site owner:
+
+- I would like to show all information in a simple way on the website.
+> Site is divided into four simple sections. All essential information about earthquakes can be found in a knowledge base.
+> Contact form and social links can be find in the footer.
+- I would like to show data about the biggest 20 earthquakes in the past.
+> Second section on the website display required data.
+- I would like to let users to search through earthquake events and show data as a list or on the map.
+> Custom search is a relevant place to search through earthquake events.
+> After clicking search button list is generated. Show on map button will display data in a map view.
+
+### As a first time user:
+
+- I would like to find out in an easy way what I can do on the website.
+> All sections are clickable and all data is presented in a table or as a graphical representation on the map.
+> Additionally, there are 3 icons on the top right corner which are highlighted to green when needed.
+- I would like to check earthquake events without any scientific knowledge needed.
+> No knowledge is needed. First two sections are run automatically and this is the best place to start with.
+
+### As a returning user:
+
+- I would like to check all of the major events from the last 7, 15 or 30 days.
+> In a custom search there are options for a last day, last seven and thirty days.
+> There is no fixed option for 15 days but this can be set in a custom time.
+- I would like to set custom settings and see all of the results in a list order.
+> All search results are in a list view and sorted by date by default.
+- I would like to see my search results on the map.
+> All search results can be seen on the map by clicking show on map button.
+- I would like to be able to contact with the site administrator.
+> At the bottom of the page there is a contact me buttoon.
+> User can contact site administrator by filling the contact form from there.
 
 [Back to Table of contents](#table-of-contents)
 ___
 ## Issues found during site development
 
-[Back to Table of contents](#table-of-contents)
+The majority of the time I spent on this project was to work on the functions that will search through data chosen by the user.
+Than function call USGS API, search through the API database and display all in an apropriate form to the user.
+I had to do a lot of a testing during this stage. Some of the problems and bugs I solved are:
 
+### Overloading a browser in customTime function.
+
+If too much data was chosen from an API the browser could freeze or hang for a long time.
+    To go around this I had to set if statements to limit the data.
+    Example from that function:
+
+>`else if (result>0 && result <10){
+    document.formcustomdata.magnitude[0].disabled=false;
+    document.formcustomdata.magnituderange.min="2.5";
+}
+else if (result>=10 && result <=30){
+    document.formcustomdata.magnitude[0].disabled=true;
+    document.formcustomdata.magnitude[1].disabled=false;
+    document.formcustomdata.magnitude[2].disabled=false;  
+    document.formcustomdata.magnituderange.min="4.5";
+}
+else if (result>30 && result <=90){
+    document.formcustomdata.magnitude[0].disabled=true;
+    document.formcustomdata.magnitude[1].disabled=true;
+    document.formcustomdata.magnitude[2].disabled=false;       
+    document.formcustomdata.magnituderange.min="5";
+}
+else if (result>90 && result <=450){
+    document.formcustomdata.magnitude[0].disabled=true;
+    document.formcustomdata.magnitude[1].disabled=true;
+    document.formcustomdata.magnitude[2].disabled=false;       
+    document.formcustomdata.magnituderange.min="5.5";
+}
+else if (result>=450 && result <=1500){
+    document.formcustomdata.magnitude[0].disabled=true;
+    document.formcustomdata.magnitude[1].disabled=true;  
+    document.formcustomdata.magnitude[2].disabled=true;
+    document.formcustomdata.magnituderange.min="6";
+}
+else if (result>=1500 && result <=4000){
+    document.formcustomdata.magnitude[0].disabled=true;
+    document.formcustomdata.magnitude[1].disabled=true;  
+    document.formcustomdata.magnitude[2].disabled=true;
+    document.formcustomdata.magnituderange.min="6.5";
+}
+else if (result>=4000 && result <=12000){
+    document.formcustomdata.magnitude[0].disabled=true;
+    document.formcustomdata.magnitude[1].disabled=true;  
+    document.formcustomdata.magnitude[2].disabled=true;
+    document.formcustomdata.magnituderange.min="7";
+}
+else if (result>=12000 && result <=40000){
+    document.formcustomdata.magnitude[0].disabled=true;
+    document.formcustomdata.magnitude[1].disabled=true;  
+    document.formcustomdata.magnitude[2].disabled=true;
+    document.formcustomdata.magnituderange.min="7.5";
+}
+else if (result>=40000){
+    document.formcustomdata.magnitude[0].disabled=true;
+    document.formcustomdata.magnitude[1].disabled=true;  
+    document.formcustomdata.magnitude[2].disabled=true;
+    document.formcustomdata.magnituderange.min="8";
+}`
+
+### `SHOW ON MAP` and `BACK` buttons do not show correctly in mozilla browser.
+One was on the top of the other.
+
+To fix this I had to add below code in css file for a mozilla browser only:
+>`@supports (-moz-appearance:none) {
+#greatest h2, #lastEarthquakes h2, #customData h2 {padding-right:1.75vh}}`
+
+### Single point map view.
+
+I wasn't able to display a single point because I had a layer with all points selected.
+
+First I had to remove layer with all points showed `geoJsonLayer.removeFrom(mymap);`
+   
+After that assign a new single point on the map `marker = L.marker([ooo[4].innerHTML, ooo[3].innerHTML]) .addTo(mymap);`
+
+---
+### Minor bugs not solved:
+
+#### List view highlited on map view
+![unsolved1](md_data/tests/unsolved1.png)
+
+#### Custom number do not show when click on custom magnitude.
+
+![unsolved2](md_data/tests/unsolved2.png)
+
+It appears after clicking the range bar.
+
+![unsolved2_number](md_data/tests/unsolved2_number.png)
+
+#### Different date format on single point map and multi point map
+
+Single map view:
+
+![single_date](md_data/tests/single_date.png) 
+
+Multipoint map view
+
+![multi_date](md_data/tests/multi_date.png)
+
+[Back to Table of contents](#table-of-contents)
 ___
 ## Performance testing
 

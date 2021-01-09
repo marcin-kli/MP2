@@ -11,7 +11,7 @@ Some general information will be provided in a knowledge base section.
 This project is for educational purposes only. It is built using HTML, CSS and Javascript programing languages.
 For functionality I used external frameworks and APIs.
 
-## [View life website in github pages](https://marcin-kli.github.io/MP2/)
+## [View live website in github pages](https://marcin-kli.github.io/MP2/)
 ---
 # Table of contents
 
@@ -49,8 +49,8 @@ As a MVP (minimum viable product) I divide landing page into 4 sections which sh
 ### User stories
 
 As a site owner:
-- I would like to show all information in a simple way on the website. Everything beyond should be redirected to external resources.
-- I would like to show data about 20 the biggest earthquakes in the past.
+- I would like to show all information in a simple way on the website.
+- I would like to show data about the biggest 20 earthquakes in the past.
 - I would like to let users to search through earthquake events and show data as a list or on the map.
 
 As a first time user:
@@ -58,7 +58,7 @@ As a first time user:
 - I would like to check earthquake events without any scientific knowledge needed.
 
 As a returning user:
-- I would like to check all of the major events for from the last 7, 15 or 30 days.
+- I would like to check all of the major events from the last 7, 15 or 30 days.
 - I would like to set custom settings and see all of the results in a list order.
 - I would like to see my search results on the map.
 - I would like to be able to contact with the site administrator.
