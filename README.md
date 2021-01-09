@@ -140,7 +140,7 @@ Footer has a contact button and social links. Each social icon will open in a se
 
 Contact button will open a modal with a contact form. Here is an example of contact form opened with details filled.
 
-![Footer](md_data/features/contact_form.png)
+![Contact form](md_data/features/contact_form.png)
 
 Contact form is linked to email.js API.
 
@@ -303,7 +303,7 @@ To run localy:
 
 Alternatively you can [Clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 or [Fork](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
-this repository ([MP1](https://github.com/marcin-kli/MP2)) into your github account.
+this repository ([MP2](https://github.com/marcin-kli/MP2)) into your github account.
 
 [Back to Table of contents](#table-of-contents)
 ___
