@@ -38,9 +38,7 @@ $(document).ready(function () {
     document.getElementById("dateuntil").defaultValue = currentDay; 
 });
 
-
 //***********************   M A I N  P A G E   **********************
-
     //************  L A S T  E A R T H Q U A K E S  ************
 
 $('#lastEarthquakes').click(function(){
@@ -97,7 +95,6 @@ $('#customData').click(function(){
 });
 
     //**************  K N O W L E D G E  B A S E  **************
-
 
 $("#knowledge .card-header").click(function(){
         $("#knowledge .card-body").toggle();
@@ -164,7 +161,6 @@ function showMap(){
     $("#customButton-back").hide();
     $("#customButton-map").hide();
     $('#customData-card .card-body').hide();
-    
 }
 
     //***** Go back to list from show all points on the map  *****
@@ -187,7 +183,6 @@ function backToList(){
     $('section').css('margin-bottom','5.5vh');
     $('#customData-card .card-body').show();
     removemap();
-        
  }
 
     //***** Show single point on map *****
@@ -223,7 +218,7 @@ $('.table-hover').on('click', 'tbody tr', function() {
 
     //******************  F U N C T I O N S  *******************
 
-    //open USGS API//
+    //open USGS API, source idea: Code institute, Star Wars API with callback function  https://courses.codeinstitute.net/courses/course-v1:CodeInstitute+IFD101+2017_T3/courseware/d9c42d8f3a174e5bae5dd2eb9ace629d/7c2d321daf6941818efbe43e42f0c62d/?child=first
 function openUSGSAPI(magnitude, otherDay, currentDay, callback){
     var xhr = new XMLHttpRequest();
     var url = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=";
@@ -284,7 +279,6 @@ function search(){
     if ($('#iconSettings i').css('color')=='rgb(133, 217, 69)'){
         ($('#iconList i').css('color','#85D945'));
     }
-
 }
 
     //set "Custom" radio input to checked state in custom search for magnitude
@@ -307,8 +301,8 @@ function disableMagnitude(){
         document.formcustomdata.magnitude[0].checked=true;
         document.formcustomdata.magnituderange.min="2.5";
         if (document.formcustomdata.time[1].checked==true){
-        document.formcustomdata.magnitude[1].checked=true;
-        document.formcustomdata.magnituderange.min="4.5";
+            document.formcustomdata.magnitude[1].checked=true;
+            document.formcustomdata.magnituderange.min="4.5";
         }
     }    
     else if (document.formcustomdata.time[2].checked==true){
@@ -318,7 +312,7 @@ function disableMagnitude(){
         document.formcustomdata.magnitude[3].disabled=false;
         document.formcustomdata.magnituderange.min="4.5";
         if (document.formcustomdata.magnitude[2].checked==false){
-        document.formcustomdata.magnitude[2].checked=true;
+            document.formcustomdata.magnitude[2].checked=true;
         }
     }
     else if (document.formcustomdata.time[3].checked==true){

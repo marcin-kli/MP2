@@ -1,5 +1,5 @@
-// seperate js file for a map
-// get map API
+// seperate js file for a map Leafletjs tutorial: https://leafletjs.com/examples/quick-start/
+// set base map layer
 var mymap = L.map('mapid', {
     center: [21.8358, 33.4233],
     zoom: 2,

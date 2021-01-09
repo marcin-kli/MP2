@@ -207,14 +207,14 @@ Contact form is linked to email.js API.
 
     ![custom search loading](md_data/features/custom_search_loading.png)
 
-    Results for a data from custom search above.
+    Results for a data from custom search.
 
     ![custom search results](md_data/features/custom_search_results.png)
 
 * ### Knowledge base
 
     This section is to provide basic knowledge about earthquakes.
-    Inside are there questions and user can get an answers for them by clicking a question. 
+    There are questions inside and user can get an answers by clicking a question.
 
      ![knowledge](md_data/features/knowledge.png)
 
@@ -290,20 +290,20 @@ I used push command in Gitpod to save changes into GitHub.
 
 To deploy a project I had to:
 
-* Log in to GitHub and click on repository to deploy ([MP1](https://github.com/marcin-kli/MP1))
+* Log in to GitHub and click on repository to deploy ([MP2](https://github.com/marcin-kli/MP2))
 * select `Settings` and find GitHub Pages section at the very bottom of the page
 * from source select `none` and then `Milestone-Projects` branch.
 * click `save` and page was deployed after auto-refresh.
->  Your site is published at https://marcin-kli.github.io/MP1/
+>  Your site is published at https://marcin-kli.github.io/MP2/
 
 To run localy:
-* Log in to GitHub and click on repository to download ([MP1](https://github.com/marcin-kli/MP1))
+* Log in to GitHub and click on repository to download ([MP2](https://github.com/marcin-kli/MP2))
 * select `Code` and click Download the ZIP file.
 * after download you can extract the file and use it in your local environment 
 
 Alternatively you can [Clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 or [Fork](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
-this repository ([MP1](https://github.com/marcin-kli/MP1)) into your github account.
+this repository ([MP1](https://github.com/marcin-kli/MP2)) into your github account.
 
 [Back to Table of contents](#table-of-contents)
 ___
@@ -316,6 +316,8 @@ ___
     * [w3schools.com](https://www.w3schools.com)
 
     * [getbootstrap.com/docs](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
+
+    * [tutorialrepublic.com/faq.php](https://www.tutorialrepublic.com/faq.php#javascript-jquery)
 
 ### Images:
 
