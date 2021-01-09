@@ -20,7 +20,7 @@ For functionality I used external frameworks and APIs.
     - [Scope](#scope)
         - [User stories](#user-stories)
     - [Structure of the website](#structure-of-the-website)
-    - [Skeleton](#sireframes)
+    - [Skeleton](#skeleton)
     - [Surface](#surface)
 - [Features](#features)
 - [Technology](#technology)
@@ -115,8 +115,6 @@ This project consist of one html page. It is divided into main 3 sections:
 - navigation bar
 - main page divided into four sections
 - footer with contact button.
-
-Details as below:
 
 ---
 ## Navigation bar
