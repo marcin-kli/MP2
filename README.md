@@ -118,8 +118,9 @@ This project consist of one html page. It is divided into main 3 sections:
 
 Details as below:
 
-## Navigation bar
 ---
+## Navigation bar
+
 Navigation bar is located on the top of the website. It is responsive and will adapt to mobile devices.
 The purpose of this bar is to have a link for a user to go to the main page on the left hand side and information icons on the right hand site.
 ### Navigation scheme:
@@ -128,12 +129,12 @@ The purpose of this bar is to have a link for a user to go to the main page on t
 
 On selected page this icons will highlight the feature by color change to green.
  
-Here is an example for a custom view with a list feature highlighted:
+Here is an example for a custom search and list view features highlighted:
 
 ![Navigation example](md_data/features/navigation_example.png)
 
-## Footer
 ---
+## Footer
 
 Footer has a contact button and social links. Each social icon will open in a separate tab in a browser.
 
@@ -145,10 +146,10 @@ Contact button will open a modal with a contact form. Here is an example of cont
 
 Contact form is linked to email.js API.
 
-## Main page
 ---
+## Main page
 
-There are four sections to choose on the main page.
+#### There are four sections to choose on the main page.
 
 ![main page](md_data/features/main_page.png)
 
@@ -160,12 +161,12 @@ There are four sections to choose on the main page.
     ![latest earthquakes](md_data/features/latest_earthquakes.png)
 
     From here there are options for:
-    1. Back button, to go back to main page.
-    2. Show on map button, to see results on the map.
-    3. Search through results, choose interesting event and display it on the map.
+    * Back button, to go back to main page.
+    * Show on map button, to see results on the map.
+    * Search through results, choose interesting event and display it on the map.
     On screenshot above selected row is highlighted and text is displayed in a tooltip.
 
-    #### Show on map.
+    #### Show on map
     
     All points from list view are on the interactive map now. Bind tooltip is highlighted for chosen event. User can search the map, increase or decrease zoom and see details for events. 
 
@@ -178,8 +179,9 @@ There are four sections to choose on the main page.
 
 * ### 20 Greatest earthquakes
 
-    In this section I had to set fix data in a function.
-    After setting magnitude to 8.4 and date to 1727-11-10 I got a list limited to 20 positions. Map view options are the same like in the latest earthquakes section.
+    In this section I had to set fixed data in a function.
+    After setting magnitude to 8.4 and date to 1727-11-10 I got a list limited to 20 positions.
+    Search results are sorted by date and map view options are the same like in the latest earthquakes section.
 
 * ### Custom search
 
@@ -220,13 +222,62 @@ There are four sections to choose on the main page.
 
 ## Possible future implementations:
 
-* ### sort search results in a table by headings
-* ### change loading message for a progress bar
-* ### create an option to build a knowledge base by a user
+* sort search results in a table by headings
+* change loading message for a progress bar
+* create an option to build a knowledge base by a user
+
 ___
 [Back to Table of contents](#table-of-contents)
 ___
 # Technologies used
+
+### HTML5
+* As a structure language.
+
+### CSS
+* As a style language.
+
+### Javascript
+* As a programming language.
+
+### Bootstrap 
+* Bootstrap@4.5.3 as a CSS framework.
+
+### jQuery 
+* jQuery@3.5.1 as a JavaScript library
+
+### Leaflet 
+* Leaflet@1.7.1 as an open-source JavaScript library for interactive map
+
+### Thunderforest 
+* As a Map Tiles API
+
+### USGS API
+* As a Earthquake Catalog
+
+### Email.js
+* As a Javascript library
+
+### Font Awesome
+* As an icon library for navigation icons and social links.
+
+### Google fonts
+* As a font resource.
+
+### GitHub
+* As a software hosting platform to keep project in a remote location.
+
+### Git
+* As a version-control system tracking.
+
+### Gitpod
+* As a development hosting platform.
+
+### Wireframe.cc
+* As a wireframing tool.
+
+### GNU Image Manipulation Program [GIMP]
+* As an image editor.
 
 [Back to Table of contents](#table-of-contents)
 ___
@@ -235,6 +286,26 @@ ___
 [Back to Table of contents](#table-of-contents)
 ___
 # Deployment
+
+The project was deployed on GitHub Pages. I used Gitpod as a development environment where I commited all changes to git version control system.
+I used push command in Gitpod to save changes into GitHub.
+
+To deploy a project I had to:
+
+* Log in to GitHub and click on repository to deploy ([MP1](https://github.com/marcin-kli/MP1))
+* select `Settings` and find GitHub Pages section at the very bottom of the page
+* from source select `none` and then `Milestone-Projects` branch.
+* click `save` and page was deployed after auto-refresh.
+>  Your site is published at https://marcin-kli.github.io/MP1/
+
+To run localy:
+* Log in to GitHub and click on repository to download ([MP1](https://github.com/marcin-kli/MP1))
+* select `Code` and click Download the ZIP file.
+* after download you can extract the file and use it in your local environment 
+
+Alternatively you can [Clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+or [Fork](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo)
+this repository ([MP1](https://github.com/marcin-kli/MP1)) into your github account.
 
 [Back to Table of contents](#table-of-contents)
 ___
@@ -254,8 +325,22 @@ ___
 
 * [pt15-what-is-an-earthquake.jpeg](https://www.kids-fun-science.com/images/pt15-what-is-an-earthquake.jpg)
 
+### Content:
+
+Content for a knowledge base:
+   * [spaceplace.nasa.gov](https://spaceplace.nasa.gov/earthquakes/en/)
+   * [www.kids-fun-science.com](https://www.kids-fun-science.com/what-is-an-earthquake.html)
+
 [Back to Table of contents](#table-of-contents)
 ___
 # Screenshots
+
+## Project screenshots
+
+![main_page](md_data/screenshots/main_page_screenshot.png)
+
+![earthquakes_list](md_data/screenshots/earthquakes.png)
+
+![custom_page](md_data/screenshots/custom_page_screenshot.png)
 
 [Back to Table of contents](#table-of-contents)
