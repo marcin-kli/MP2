@@ -281,6 +281,8 @@ ___
 ___
 # Testing
 
+### Testing section is located in [TEST.md](https://github.com/marcin-kli/MP2/blob/Milestone-Projects/TEST.md) file.
+
 [Back to Table of contents](#table-of-contents)
 ___
 # Deployment
