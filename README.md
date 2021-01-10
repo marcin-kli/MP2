@@ -321,6 +321,14 @@ ___
 
     * [tutorialrepublic.com/faq.php](https://www.tutorialrepublic.com/faq.php#javascript-jquery)
 
+### Code:
+
+* Animation on the map:
+[animated-setview-in-leaflet](https://stackoverflow.com/questions/36167218/animated-setview-in-leaflet)
+
+* Get String in YYYYMMDD format from JS date object:
+[get-string](https://stackoverflow.com/questions/3066586/get-string-in-yyyymmdd-format-from-js-date-object/28431880#28431880)
+
 ### Images:
 
 * [pexels-pixabay-41953_s.jpg](https://www.pexels.com/photo/earth-space-universe-globe-41953/)

@@ -192,6 +192,8 @@ I run Lighthouse tool to check performance of the website.
 
 ![performance](md_data/tests/lighthouse_results.png)
 
+#### I noticed that first data pulling from USGS API takes more time. After that all searches are smooth.
+
 [Back to Table of contents](#table-of-contents)
 ___
 ## Code Validation
