@@ -21,19 +21,19 @@ Starting from the top of the page, I check:
 
 ### Modal form and Email.js testing
 
-* Closing a modal by pressing an `x` button on the top right corner works as expected.
-* All input boxes works, validation works as expected.
+* Closing the modal by pressing an `x` button on the top right corner works as expected.
+* All input boxes work, validation works as expected.
 * Send a message button works as expected. Results:
 
 ![Confirmation](md_data/tests/contact_form_confirmation.png)
 
 ![Email confirmation](md_data/tests/email_confirmation.png)
 
-### The latest earthquakes and 20 greatest earthquake options
+### The latest earthquakes and 20 greatest earthquakes options
 
-Section opens as expected. `Show on map` and `back` buttons work.
+Section opens as expected. `SHOW ON MAP` and `BACK` buttons work.
 
-On a map search everything works as expected. On mouse over selected point is highlighted and tooltip displayed.
+On the map search everything works as expected. On mouse over selected point is highlighted and tooltip displayed.
 Zoom buttons work correctly.
 
 Back to the list view. Selected search result is highlighted and tooltip is displayed on mouse over.
@@ -67,7 +67,7 @@ Minimim days | Maximum days |Mmagnitude
  40000 | | 8
 
 This part was carefully tested during deployment.
-I will omit manual functionality testing here and paste a screenshot as a proof.
+I omit manual functionality testing here and paste a screenshot as a proof.
 
 For selected days `+ 2.5` magnitude is disabled.
 ![customdate2](md_data/tests/customdate2.png)
@@ -101,7 +101,7 @@ ___
 ### As a site owner:
 
 - I would like to show all information in a simple way on the website.
-> Site is divided into four simple sections. All essential information about earthquakes can be found in a knowledge base.
+> Site is divided into four simple sections. All essential information about earthquakes can be found in the knowledge base.
 > Contact form and social links can be find in the footer.
 - I would like to show data about the biggest 20 earthquakes in the past.
 > Second section on the website display required data.
@@ -113,9 +113,9 @@ ___
 
 - I would like to find out in an easy way what I can do on the website.
 > All sections are clickable and all data is presented in a table or as a graphical representation on the map.
-> Additionally, there are 3 icons on the top right corner which are highlighted to green when needed.
+> Additionally, there are 3 icons on the top right corner which are highlighted in green when needed.
 - I would like to check earthquake events without any scientific knowledge needed.
-> No knowledge is needed. First two sections are run automatically and this is the best place to start with.
+> No knowledge is needed. First two sections run automatically and this is the best place to start with.
 
 ### As a returning user:
 
@@ -127,7 +127,7 @@ ___
 - I would like to see my search results on the map.
 > All search results can be seen on the map by clicking show on map button.
 - I would like to be able to contact with the site administrator.
-> At the bottom of the page there is a contact me buttoon.
+> At the bottom of the page there is a contact me button.
 > User can contact site administrator by filling the contact form from there.
 
 [Back to Table of contents](#table-of-contents)
@@ -141,64 +141,12 @@ I had to do a lot of a testing during this stage. Some of the problems and bugs 
 ### Overloading a browser in customTime function.
 
 If too much data was chosen from an API the browser could freeze or hang for a long time.
-    To go around this I had to set if statements to limit the data.
-    Example from that function:
+    To go around this I had to set else if statements to limit the data.
 
->`else if (result>0 && result <10){
-    document.formcustomdata.magnitude[0].disabled=false;
-    document.formcustomdata.magnituderange.min="2.5";
-}
-else if (result>=10 && result <=30){
-    document.formcustomdata.magnitude[0].disabled=true;
-    document.formcustomdata.magnitude[1].disabled=false;
-    document.formcustomdata.magnitude[2].disabled=false;  
-    document.formcustomdata.magnituderange.min="4.5";
-}
-else if (result>30 && result <=90){
-    document.formcustomdata.magnitude[0].disabled=true;
-    document.formcustomdata.magnitude[1].disabled=true;
-    document.formcustomdata.magnitude[2].disabled=false;       
-    document.formcustomdata.magnituderange.min="5";
-}
-else if (result>90 && result <=450){
-    document.formcustomdata.magnitude[0].disabled=true;
-    document.formcustomdata.magnitude[1].disabled=true;
-    document.formcustomdata.magnitude[2].disabled=false;       
-    document.formcustomdata.magnituderange.min="5.5";
-}
-else if (result>=450 && result <=1500){
-    document.formcustomdata.magnitude[0].disabled=true;
-    document.formcustomdata.magnitude[1].disabled=true;  
-    document.formcustomdata.magnitude[2].disabled=true;
-    document.formcustomdata.magnituderange.min="6";
-}
-else if (result>=1500 && result <=4000){
-    document.formcustomdata.magnitude[0].disabled=true;
-    document.formcustomdata.magnitude[1].disabled=true;  
-    document.formcustomdata.magnitude[2].disabled=true;
-    document.formcustomdata.magnituderange.min="6.5";
-}
-else if (result>=4000 && result <=12000){
-    document.formcustomdata.magnitude[0].disabled=true;
-    document.formcustomdata.magnitude[1].disabled=true;  
-    document.formcustomdata.magnitude[2].disabled=true;
-    document.formcustomdata.magnituderange.min="7";
-}
-else if (result>=12000 && result <=40000){
-    document.formcustomdata.magnitude[0].disabled=true;
-    document.formcustomdata.magnitude[1].disabled=true;  
-    document.formcustomdata.magnitude[2].disabled=true;
-    document.formcustomdata.magnituderange.min="7.5";
-}
-else if (result>=40000){
-    document.formcustomdata.magnitude[0].disabled=true;
-    document.formcustomdata.magnitude[1].disabled=true;  
-    document.formcustomdata.magnitude[2].disabled=true;
-    document.formcustomdata.magnituderange.min="8";
-}`
+![elseif](md_data/tests/elseif.png)
 
-### `SHOW ON MAP` and `BACK` buttons do not show correctly in mozilla browser.
-One was on the top of the other.
+### Buttons do not show correctly in a Mozilla browser.
+`SHOW ON MAP` and `BACK` buttons were one on the top of the other.
 
 To fix this I had to add below code in css file for a mozilla browser only:
 >`@supports (-moz-appearance:none) {
@@ -208,7 +156,7 @@ To fix this I had to add below code in css file for a mozilla browser only:
 
 I wasn't able to display a single point because I had a layer with all points selected.
 
-First I had to remove layer with all points showed `geoJsonLayer.removeFrom(mymap);`
+First I had to remove layer with all points showed by this function: `geoJsonLayer.removeFrom(mymap);`
    
 After that assign a new single point on the map `marker = L.marker([ooo[4].innerHTML, ooo[3].innerHTML]) .addTo(mymap);`
 
@@ -248,7 +196,7 @@ I run Lighthouse tool to check performance of the website.
 ___
 ## Code Validation
 
- At the and of the project I used two websites to validate a code
+ At the and of the project I used two websites to validate the code
  * [Jshint](https://jshint.com/) to test JavaScript
  * [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate CSS
  * [Nu Html Checker](https://validator.w3.org/) to test HTML
@@ -264,7 +212,8 @@ ___
 First time:
 ![index](md_data/tests/NuHtmlChecker.png)
 
-After a fix:
+After fixing:
+
 ![index_ok](md_data/tests/NuHtmlChecker_OK.png)
 #### style.css
 ![css](md_data/tests/w3s_css.png)
