@@ -96,6 +96,7 @@ section{
     background-image: url("../images/pexels-pixabay-41953_00.jpg");
     background-repeat: no-repeat;
     background-position: 50% ;
+    background-position-y: top;
 }
 
 @media screen and (max-width: 768px){
@@ -336,4 +337,24 @@ footer li a i{
 
 .modal-header{
     display: block;
+}
+
+/********* 404 ********/
+.spacing-404{
+    padding-top: 12vh;
+    padding-bottom: 30vh;
+}
+
+@media screen and (min-width: 760px){
+    .spacing-404{
+    padding-top: 15vh;
+    padding-bottom: 45vh;      
+    width:75vw;
+   }
+   .spacing-404 div{
+       margin-right: auto;
+   }
+   .spacing-404 h2{
+       margin-left: auto;
+}
 }
